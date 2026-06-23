@@ -135,7 +135,7 @@ export default function ExperiencesSection() {
           {experiences.map((exp, index) => {
             const isFeatured = exp.featured;
             const colSpan = isFeatured ? "col-span-12 lg:col-span-8" : "col-span-6 lg:col-span-4";
-            const height = isFeatured ? "h-[60vh] lg:h-[80vh]" : "h-[45vh] lg:h-[60vh]";
+            const height = "h-[60vh] lg:h-[80vh]";
             
             return (
               <DesktopExperienceCard 
