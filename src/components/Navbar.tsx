@@ -4,10 +4,26 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { useLenis } from "lenis/react";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const lenis = useLenis();
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    
+    if (lenis) {
+      lenis.scrollTo(`#${targetId}`, { offset: -80 });
+    } else {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,17 +55,17 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-12">
-            <Link href="#stay" className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold">Stay</Link>
-            <Link href="#experiences" className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold">Experiences</Link>
-            <Link href="#gallery" className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold">Gallery</Link>
-            <Link href="#nearby" className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold">Nearby</Link>
+            <a href="#stay" onClick={(e) => handleNavClick(e, 'stay')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Stay</a>
+            <a href="#experiences" onClick={(e) => handleNavClick(e, 'experiences')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Experiences</a>
+            <a href="#gallery" onClick={(e) => handleNavClick(e, 'gallery')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Gallery</a>
+            <a href="#nearby" onClick={(e) => handleNavClick(e, 'nearby')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Nearby</a>
           </div>
 
           {/* CTA Desktop */}
           <div className="hidden md:block">
-            <Link href="#book" className="px-6 py-2 border border-forest/60 rounded-full text-sm tracking-widest uppercase text-forest hover:bg-forest hover:text-cream transition-all duration-300 font-bold">
+            <a href="#book" onClick={(e) => handleNavClick(e, 'book')} className="px-6 py-2 border border-forest/60 rounded-full text-sm tracking-widest uppercase text-forest hover:bg-forest hover:text-cream transition-all duration-300 font-bold cursor-pointer">
               Book Stay
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -72,13 +88,13 @@ export default function Navbar() {
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 z-40 bg-charcoal/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-8"
           >
-            <Link href="#stay" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl tracking-widest uppercase text-cream">Stay</Link>
-            <Link href="#experiences" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl tracking-widest uppercase text-cream">Experiences</Link>
-            <Link href="#gallery" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl tracking-widest uppercase text-cream">Gallery</Link>
-            <Link href="#nearby" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl tracking-widest uppercase text-cream">Nearby</Link>
-            <Link href="#book" onClick={() => setIsMobileMenuOpen(false)} className="mt-8 px-8 py-4 bg-forest text-cream rounded-full text-lg tracking-widest uppercase">
+            <a href="#stay" onClick={(e) => handleNavClick(e, 'stay')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Stay</a>
+            <a href="#experiences" onClick={(e) => handleNavClick(e, 'experiences')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Experiences</a>
+            <a href="#gallery" onClick={(e) => handleNavClick(e, 'gallery')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Gallery</a>
+            <a href="#nearby" onClick={(e) => handleNavClick(e, 'nearby')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Nearby</a>
+            <a href="#book" onClick={(e) => handleNavClick(e, 'book')} className="mt-8 px-8 py-4 bg-forest text-cream rounded-full text-lg tracking-widest uppercase cursor-pointer">
               Book Your Stay
-            </Link>
+            </a>
           </motion.div>
         )}
       </AnimatePresence>

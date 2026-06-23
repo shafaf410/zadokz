@@ -9,8 +9,9 @@ const experiences = [
     id: "01",
     title: "Swimming Pool",
     images: [
-      "/IMAGES/COTTAGE 1/POOL.jpeg",
-      "/IMAGES/COTTAGE 1/R.jpeg"
+      "/IMAGES/pool1.jpeg",
+      "/IMAGES/pool2.jpeg",
+      "/IMAGES/pool3.jpeg"
     ],
     color: "#1e5a50", // Cool blue-green
     featured: true
@@ -18,7 +19,10 @@ const experiences = [
   {
     id: "02",
     title: "Plantation Walks",
-    images: ["/IMAGES/COTTAGE 1/3.jpeg"],
+    images: [
+      "/IMAGES/plantation walk.jpeg",
+      "/IMAGES/plantation2.jpeg"
+    ],
     color: "#2d4229", // Soft green
     featured: false
   },
@@ -26,8 +30,9 @@ const experiences = [
     id: "03",
     title: "Kids Play Area",
     images: [
-      "/IMAGES/COTTAGE 1/4.jpeg",
-      "/IMAGES/COTTAGE 1/WhatsApp Image 2026-06-22 at 5.10.21 PM.jpeg"
+      "/IMAGES/kids play area.jpeg",
+      "/IMAGES/kids play 2.jpeg",
+      "/IMAGES/play3.jpeg"
     ],
     color: "#4a4a2d", // Warm earthy
     featured: false
@@ -36,8 +41,7 @@ const experiences = [
     id: "04",
     title: "Karaoke & Entertainment",
     images: [
-      "/IMAGES/COTTAGE 1/WhatsApp Image 2026-06-22 at 5.10.19 PM.jpeg",
-      "/IMAGES/COTTAGE 1/WhatsApp Image 2026-06-22 at 5.10.22 PM.jpeg"
+      "/IMAGES/karoke.jpeg"
     ],
     color: "#4a3c2d", // Soft brown
     featured: false
@@ -46,8 +50,8 @@ const experiences = [
     id: "05",
     title: "Campfire",
     images: [
-      "/IMAGES/campfire.png",
-      "/IMAGES/COTTAGE 1/WhatsApp Image 2026-06-22 at 5.10.32 PM.jpeg"
+      "/IMAGES/campfire.jpeg",
+      "/IMAGES/campfire2.jpeg"
     ],
     color: "#b45014", // Warm orange
     featured: false
@@ -191,9 +195,8 @@ function DesktopExperienceCard({ exp, index, className }: { exp: any, index: num
         <ImageCrossfade images={exp.images} />
       </motion.div>
       
-      {/* Glass Overlay */}
-      <div className="absolute inset-0 bg-charcoal/40 group-hover:bg-charcoal/20 transition-colors duration-700 ease-out" />
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent opacity-80" />
+      {/* Subtle Bottom Gradient for Text Legibility */}
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent opacity-70 pointer-events-none" />
 
       {/* Content */}
       <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12 flex flex-col justify-end">
@@ -207,18 +210,6 @@ function DesktopExperienceCard({ exp, index, className }: { exp: any, index: num
             >
               <h3 className="text-3xl lg:text-4xl text-cream font-[var(--font-boska)]">{exp.title}</h3>
             </motion.div>
-          </div>
-          
-          <div className="overflow-hidden mb-2 hidden md:block">
-            <motion.span 
-              initial={{ y: "100%" }}
-              whileInView={{ y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: 0.4 + (index * 0.1), ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl lg:text-5xl font-light text-cream/30 font-[var(--font-boska)]"
-            >
-              {exp.id}
-            </motion.span>
           </div>
         </div>
       </div>
@@ -247,10 +238,9 @@ function MobileExperienceCard({ exp, index }: { exp: any, index: number }) {
       className="snap-center shrink-0 w-[80%] aspect-[4/5] rounded-[24px] overflow-hidden relative shadow-2xl bg-charcoal"
     >
       <ImageCrossfade images={exp.images} />
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent opacity-70 pointer-events-none" />
       
       <div className="absolute bottom-0 left-0 right-0 p-6">
-        <span className="text-3xl font-light text-cream/40 font-[var(--font-boska)] mb-2 block">{exp.id}</span>
         <h3 className="text-2xl text-cream font-medium font-[var(--font-boska)]">{exp.title}</h3>
       </div>
     </motion.div>
