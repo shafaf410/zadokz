@@ -3,7 +3,7 @@
 import { motion, Variants } from "framer-motion";
 import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const cards = [
   {
@@ -23,6 +23,12 @@ const cards = [
     title: "Ginger Poolside Room",
     tagline: "Steps away from the pool and designed for complete relaxation.",
     image: "/IMAGES/COTTAGE 1/DINING SPACE LOOKING BANSURA.jpeg",
+  },
+  {
+    id: 4,
+    title: "Forest View Suite",
+    tagline: "Immerse yourself in the tranquility of the surrounding woods.",
+    image: "/IMAGES/COTTAGE 1/ROOM4.jpeg",
   }
 ];
 
@@ -53,6 +59,14 @@ export default function HeroSection() {
   const prevSlide = () => {
     setActiveIndex((prev) => (prev - 1 + cards.length) % cards.length);
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % cards.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="relative h-[100svh] w-full overflow-hidden bg-charcoal flex flex-col justify-between">
@@ -117,7 +131,7 @@ export default function HeroSection() {
         </motion.div>
 
         {/* RIGHT COLUMN (45%) - DESKTOP ONLY */}
-        <div className="hidden md:flex w-[45%] h-full relative items-center justify-center pt-10">
+        <div className="hidden md:flex w-[45%] h-full relative items-center justify-center pt-10 translate-x-8 lg:translate-x-16">
           <div className="relative w-full max-w-[400px] h-[60vh] flex items-center justify-center">
             {cards.map((card, index) => {
               // Calculate stacked position based on active index
