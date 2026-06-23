@@ -79,7 +79,7 @@ export default function StaySection() {
   }
 
   return (
-    <section id="stay" className="relative w-full bg-[#F5F2EA] overflow-hidden py-32 md:py-48 text-charcoal">
+    <section id="stay" className="relative w-full overflow-hidden py-32 md:py-48 text-charcoal">
       
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center opacity-30">

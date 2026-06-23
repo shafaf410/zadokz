@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#F5F2EA] text-charcoal font-sans selection:bg-forest selection:text-cream">
+    <main className="relative min-h-screen text-charcoal font-sans selection:bg-forest selection:text-cream">
       <BackgroundSystem />
       <Navbar />
       
