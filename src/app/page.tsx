@@ -3,6 +3,8 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import DiscoverSection from "@/components/DiscoverSection";
 import ExperiencesSection from "@/components/ExperiencesSection";
+import GallerySection from "@/components/GallerySection";
+import NearbySection from "@/components/NearbySection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
 
@@ -15,6 +17,8 @@ export default function Home() {
       <HeroSection />
       <DiscoverSection />
       <ExperiencesSection />
+      <GallerySection />
+      <NearbySection />
       <TestimonialsSection />
 
 

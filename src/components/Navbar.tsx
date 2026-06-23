@@ -15,14 +15,21 @@ export default function Navbar() {
     e.preventDefault();
     setIsMobileMenuOpen(false);
     
-    if (lenis) {
-      lenis.scrollTo(`#${targetId}`, { offset: -80 });
-    } else {
-      const element = document.getElementById(targetId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+    const element = document.getElementById(targetId);
+    if (!element) {
+      console.warn(`Element with id ${targetId} not found`);
+      return;
     }
+
+    // Use requestAnimationFrame to ensure the mobile menu closing render has started
+    requestAnimationFrame(() => {
+      if (lenis) {
+        lenis.scrollTo(element, { offset: -80 });
+      } else {
+        const y = element.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    });
   };
 
   useEffect(() => {
