@@ -3,7 +3,7 @@
 import { motion, Variants } from "framer-motion";
 import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const cards = [
   {
@@ -34,6 +34,7 @@ const cards = [
 
 export default function HeroSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const mobileCarouselRef = useRef<HTMLDivElement>(null);
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -62,14 +63,31 @@ export default function HeroSection() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % cards.length);
+      setActiveIndex((prev) => {
+        const nextIndex = (prev + 1) % cards.length;
+        
+        // Auto-scroll the mobile carousel
+        if (mobileCarouselRef.current) {
+          const container = mobileCarouselRef.current;
+          const cardNode = container.children[nextIndex] as HTMLElement;
+          if (cardNode) {
+            const scrollPos = cardNode.offsetLeft - (container.clientWidth / 2) + (cardNode.clientWidth / 2);
+            container.scrollTo({
+              left: scrollPos,
+              behavior: "smooth"
+            });
+          }
+        }
+        
+        return nextIndex;
+      });
     }, 2500);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="relative h-[100svh] w-full overflow-hidden bg-charcoal flex flex-col justify-between">
+    <section className="relative min-h-[100svh] w-full overflow-hidden bg-charcoal flex flex-col justify-center md:justify-between">
       
       {/* Background Image with Left-to-Right Dark Overlay */}
       <div className="absolute inset-0 z-0">
@@ -92,23 +110,23 @@ export default function HeroSection() {
       </div>
 
       {/* Main Content Area */}
-      <div className="container relative z-20 mx-auto px-6 md:px-12 h-full flex flex-col md:flex-row items-center pt-32 pb-24 md:py-0">
+      <div className="container relative z-20 mx-auto px-6 md:px-12 h-auto md:h-full flex flex-col md:flex-row items-center pt-32 md:pt-32 pb-4 md:py-0 flex-1">
         
         {/* LEFT COLUMN (55%) */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="w-full md:w-[55%] flex flex-col justify-center h-full max-w-[650px] pr-8 lg:pr-16"
+          className="w-full md:w-[55%] flex flex-col justify-start md:justify-center h-full max-w-[650px] pr-4 md:pr-8 lg:pr-16"
         >
-          <motion.div variants={itemVariants} className="mb-6 inline-flex items-center space-x-3 mt-auto md:mt-0">
-            <div className="w-8 h-[1px] bg-forest"></div>
-            <span className="text-xs tracking-[0.3em] uppercase text-cream/80 font-semibold">Escape to Nature</span>
+          <motion.div variants={itemVariants} className="mb-4 md:mb-6 inline-flex items-center space-x-3 mt-4 md:mt-0 drop-shadow-md">
+            <div className="w-8 h-[2px] bg-cream"></div>
+            <span className="text-xs tracking-[0.3em] uppercase text-cream font-bold">Escape to Nature</span>
           </motion.div>
           
           <motion.div variants={itemVariants}>
             <h1 
-              className="text-5xl md:text-6xl lg:text-[4.5rem] text-cream leading-[1.1] mb-6 max-w-[700px] font-[var(--font-boska)] drop-shadow-2xl"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-cream leading-[1.1] mb-6 max-w-[700px] font-[var(--font-boska)] drop-shadow-2xl"
               style={{ textShadow: "0 4px 30px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5)" }}
             >
               Stay Where <br />
@@ -119,11 +137,11 @@ export default function HeroSection() {
 
 
 
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-auto md:mb-0">
-            <button className="px-8 py-4 bg-forest text-cream rounded-full text-sm tracking-widest uppercase hover:bg-moss transition-all duration-300 w-full sm:w-auto text-center">
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-6">
+            <button className="px-6 py-3 md:px-8 md:py-4 bg-forest text-cream rounded-full text-xs md:text-sm tracking-widest uppercase hover:bg-moss transition-all duration-300 w-full sm:w-auto text-center">
               Book Your Stay
             </button>
-            <button className="px-8 py-4 border border-cream/30 text-cream rounded-full text-sm tracking-widest uppercase hover:bg-cream hover:text-charcoal transition-all duration-300 w-full sm:w-auto text-center flex items-center justify-center space-x-2 group">
+            <button className="px-6 py-3 md:px-8 md:py-4 border border-cream/30 text-cream rounded-full text-xs md:text-sm tracking-widest uppercase hover:bg-cream hover:text-charcoal transition-all duration-300 w-full sm:w-auto text-center flex items-center justify-center space-x-2 group">
               <span>Explore Cottages</span>
               <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </button>
@@ -208,20 +226,21 @@ export default function HeroSection() {
       </div>
 
       {/* MOBILE COTTAGE CAROUSEL */}
-      <div className="md:hidden absolute bottom-8 left-0 right-0 w-full z-20 pl-6">
+      <div className="md:hidden relative w-full z-20 pl-6 mt-8 pb-12">
         <motion.div 
+          ref={mobileCarouselRef}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar space-x-4 pb-6 pr-6"
+          className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar space-x-4 pb-4 pr-6"
         >
           {cards.map((card) => (
-            <div key={card.id} className="snap-center shrink-0 w-[85%] sm:w-[320px] aspect-[3/4] rounded-[28px] overflow-hidden glass relative shadow-2xl">
+            <div key={card.id} className="snap-center shrink-0 w-[75%] sm:w-[320px] aspect-[4/3] rounded-[20px] overflow-hidden glass relative shadow-2xl">
               <Image src={card.image} alt={card.title} fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/30 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-xl text-cream font-medium mb-2">{card.title}</h3>
-                <p className="text-sm text-cream/70 line-clamp-2">{card.tagline}</p>
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <h3 className="text-lg text-cream font-medium mb-1">{card.title}</h3>
+                <p className="text-xs text-cream/70 line-clamp-2">{card.tagline}</p>
               </div>
             </div>
           ))}
