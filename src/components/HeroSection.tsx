@@ -145,10 +145,10 @@ export default function HeroSection() {
               Book Your Stay
             </button>
             <button 
-              onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('stay')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-6 py-3 md:px-8 md:py-4 border border-cream/30 text-cream rounded-full text-xs md:text-sm tracking-widest uppercase hover:bg-cream hover:text-charcoal transition-all duration-300 w-full sm:w-auto text-center flex items-center justify-center space-x-2 group"
             >
-              <span>Explore Cottages</span>
+              <span>Explore Your Stay</span>
               <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </button>
           </motion.div>
