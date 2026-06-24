@@ -299,7 +299,12 @@ function ExitText() {
       </h2>
 
       <motion.button 
-        onClick={() => document.getElementById('nearby')?.scrollIntoView({ behavior: 'smooth' })}
+        onClick={() => {
+          window.dispatchEvent(new CustomEvent('showSection', { detail: 'nearby' }));
+          setTimeout(() => {
+            document.getElementById('nearby')?.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        }}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
