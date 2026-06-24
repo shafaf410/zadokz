@@ -16,10 +16,10 @@ export default function DiscoverSection() {
   return (
     <section id="discover" className="py-32 md:py-48 text-charcoal relative z-10">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-start relative">
           
           {/* Left Side: Images */}
-          <div className="md:col-span-6 relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center">
+          <div className="md:col-span-6 relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center sticky top-32 md:top-40">
             {/* Primary Large Image */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
