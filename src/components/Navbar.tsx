@@ -15,25 +15,21 @@ export default function Navbar() {
     e.preventDefault();
     setIsMobileMenuOpen(false);
     
-    window.dispatchEvent(new CustomEvent('showSection', { detail: targetId }));
+    const element = document.getElementById(targetId);
+    if (!element) {
+      console.warn(`Element with id ${targetId} not found`);
+      return;
+    }
 
-    // Use setTimeout to ensure React has time to render the conditionally hidden sections before scrolling
-    setTimeout(() => {
-      const element = document.getElementById(targetId);
-      if (!element) {
-        console.warn(`Element with id ${targetId} not found`);
-        return;
+    // Use requestAnimationFrame to ensure the mobile menu closing render has started
+    requestAnimationFrame(() => {
+      if (lenis) {
+        lenis.scrollTo(element, { offset: -80 });
+      } else {
+        const y = element.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: y, behavior: 'smooth' });
       }
-      
-      requestAnimationFrame(() => {
-        if (lenis) {
-          lenis.scrollTo(element, { offset: -80 });
-        } else {
-          const y = element.getBoundingClientRect().top + window.scrollY - 80;
-          window.scrollTo({ top: y, behavior: 'smooth' });
-        }
-      });
-    }, 100);
+    });
   };
 
   useEffect(() => {

@@ -1,6 +1,3 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import BackgroundSystem from "@/components/BackgroundSystem";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
@@ -13,18 +10,6 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
-  const [showGallery, setShowGallery] = useState(false);
-  const [showNearby, setShowNearby] = useState(false);
-
-  useEffect(() => {
-    const handleShowSection = (e: any) => {
-      if (e.detail === 'gallery') setShowGallery(true);
-      if (e.detail === 'nearby') setShowNearby(true);
-    };
-    window.addEventListener('showSection', handleShowSection);
-    return () => window.removeEventListener('showSection', handleShowSection);
-  }, []);
-
   return (
     <main className="relative min-h-screen text-charcoal font-sans selection:bg-forest selection:text-cream">
       <BackgroundSystem />
@@ -34,8 +19,8 @@ export default function Home() {
       <DiscoverSection />
       <StaySection />
       <ExperiencesSection />
-      {showGallery && <GallerySection />}
-      {showNearby && <NearbySection />}
+      <GallerySection />
+      <NearbySection />
       <TestimonialsSection />
 
 
