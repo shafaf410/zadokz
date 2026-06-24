@@ -69,10 +69,10 @@ export default function NearbySection() {
   return (
     <section id="nearby" className="relative w-full bg-charcoal overflow-hidden py-32 md:py-48 text-cream">
       
-      {/* Dynamic Background Glow */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-1/4 right-1/4 w-[60vw] h-[60vw] bg-[#3a4f36] rounded-full blur-[150px] opacity-10" />
-        <div className="absolute bottom-1/4 left-1/4 w-[50vw] h-[50vw] bg-[#2a3c27] rounded-full blur-[150px] opacity-20" />
+      {/* Dynamic Background Glow - Hidden on mobile for scroll performance */}
+      <div className="hidden md:block absolute inset-0 pointer-events-none z-0">
+        <div className="absolute top-1/4 right-1/4 w-[60vw] h-[60vw] bg-[#3a4f36] rounded-full blur-[150px] opacity-10 transform-gpu" />
+        <div className="absolute bottom-1/4 left-1/4 w-[50vw] h-[50vw] bg-[#2a3c27] rounded-full blur-[150px] opacity-20 transform-gpu" />
       </div>
 
       <div className="container relative z-10 mx-auto px-6 md:px-12">

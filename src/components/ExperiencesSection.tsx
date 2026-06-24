@@ -113,9 +113,9 @@ export default function ExperiencesSection() {
 
   return (
     <section id="experiences" ref={containerRef} className="relative w-full bg-charcoal overflow-hidden py-32 md:py-48">
-      {/* Dynamic Background Glow */}
+      {/* Dynamic Background Glow - Hidden on mobile to prevent scroll lag */}
       <motion.div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[1000px] max-h-[1000px] rounded-full blur-[150px] opacity-30 pointer-events-none z-0"
+        className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[1000px] max-h-[1000px] rounded-full blur-[150px] opacity-30 pointer-events-none z-0 transform-gpu"
         style={{ backgroundColor: glowColor }}
       />
       
