@@ -19,7 +19,7 @@ export default function DiscoverSection() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-start relative">
           
           {/* Left Side: Images */}
-          <div className="md:col-span-6 relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center sticky top-32 md:top-40">
+          <div className="md:col-span-6 relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center md:sticky md:top-40 mb-10 md:mb-0">
             {/* Primary Large Image */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}

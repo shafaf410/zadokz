@@ -205,12 +205,12 @@ export default function StaySection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="min-w-[85vw] sm:min-w-[60vw] snap-center shrink-0"
+                className="w-[85vw] max-w-[340px] sm:w-[60vw] snap-center shrink-0"
               >
                 <StayCard 
                   stay={stay} 
                   onClick={() => setSelectedStay(stay)}
-                  className="flex flex-col h-[65vh]"
+                  className="flex flex-col h-auto aspect-[4/5] sm:aspect-[3/4]"
                   imageClass="h-[60%]"
                   contentClass="h-[40%] p-6 flex flex-col justify-between"
                 />
