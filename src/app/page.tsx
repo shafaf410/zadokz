@@ -19,8 +19,6 @@ export default function Home() {
       <DiscoverSection />
       <StaySection />
       <ExperiencesSection />
-      <GallerySection />
-      <NearbySection />
       <TestimonialsSection />
 
 

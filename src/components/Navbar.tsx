@@ -11,15 +11,22 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const lenis = useLenis();
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    e.preventDefault();
-    setIsMobileMenuOpen(false);
-    
-    const element = document.getElementById(targetId);
-    if (!element) {
-      console.warn(`Element with id ${targetId} not found`);
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string, path?: string) => {
+    // If it's a completely different page path, let Next.js Link handle the navigation natively
+    if (path === '/gallery' || path === '/nearby') {
+      setIsMobileMenuOpen(false);
       return;
     }
+
+    const element = document.getElementById(targetId);
+    if (!element) {
+      // If element isn't found (e.g. we are not on the homepage), let Link handle it natively to /#targetId
+      setIsMobileMenuOpen(false);
+      return;
+    }
+
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
 
     // Use requestAnimationFrame to ensure the mobile menu closing render has started
     requestAnimationFrame(() => {
@@ -62,10 +69,10 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-12">
-            <a href="#stay" onClick={(e) => handleNavClick(e, 'stay')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Stay</a>
-            <a href="#experiences" onClick={(e) => handleNavClick(e, 'experiences')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Experiences</a>
-            <a href="#gallery" onClick={(e) => handleNavClick(e, 'gallery')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Gallery</a>
-            <a href="#nearby" onClick={(e) => handleNavClick(e, 'nearby')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Nearby</a>
+            <Link href="/#stay" onClick={(e) => handleNavClick(e as any, 'stay', '/#stay')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Stay</Link>
+            <Link href="/#experiences" onClick={(e) => handleNavClick(e as any, 'experiences', '/#experiences')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Experiences</Link>
+            <Link href="/gallery" onClick={(e) => handleNavClick(e as any, 'gallery', '/gallery')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Gallery</Link>
+            <Link href="/nearby" onClick={(e) => handleNavClick(e as any, 'nearby', '/nearby')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Nearby</Link>
           </div>
 
           {/* CTA Desktop */}
@@ -98,10 +105,10 @@ export default function Navbar() {
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 z-40 bg-charcoal/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-8"
           >
-            <a href="#stay" onClick={(e) => handleNavClick(e, 'stay')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Stay</a>
-            <a href="#experiences" onClick={(e) => handleNavClick(e, 'experiences')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Experiences</a>
-            <a href="#gallery" onClick={(e) => handleNavClick(e, 'gallery')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Gallery</a>
-            <a href="#nearby" onClick={(e) => handleNavClick(e, 'nearby')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Nearby</a>
+            <Link href="/#stay" onClick={(e) => handleNavClick(e as any, 'stay', '/#stay')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Stay</Link>
+            <Link href="/#experiences" onClick={(e) => handleNavClick(e as any, 'experiences', '/#experiences')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Experiences</Link>
+            <Link href="/gallery" onClick={(e) => handleNavClick(e as any, 'gallery', '/gallery')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Gallery</Link>
+            <Link href="/nearby" onClick={(e) => handleNavClick(e as any, 'nearby', '/nearby')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Nearby</Link>
             <button 
               onClick={(e) => handleNavClick(e, 'contact')}
               className="mt-8 px-8 py-4 bg-forest text-cream rounded-full text-lg tracking-widest uppercase cursor-pointer flex items-center space-x-3"
