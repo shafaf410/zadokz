@@ -55,6 +55,33 @@ const experiences = [
     ],
     color: "#b45014", // Warm orange
     featured: false
+  },
+  {
+    id: "06",
+    title: "Vegie Garden",
+    images: [
+      "/IMAGES/vegie_garden.png"
+    ],
+    color: "#3d5a35", // Earthy green
+    featured: false
+  },
+  {
+    id: "07",
+    title: "Board Games",
+    images: [
+      "/IMAGES/carrom_board.png"
+    ],
+    color: "#6b4423", // Wood brown
+    featured: false
+  },
+  {
+    id: "08",
+    title: "Dining Space",
+    images: [
+      "/IMAGES/COTTAGE 1/DINING SPACE LOOKING BANSURA.jpeg"
+    ],
+    color: "#2c3e50", // Dark slate
+    featured: false
   }
 ];
 
