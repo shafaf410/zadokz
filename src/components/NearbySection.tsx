@@ -36,6 +36,30 @@ const ATTRACTIONS = [
     description: "Visit Asia's second-largest earth dam and admire spectacular views of the surrounding hills and reservoir. Enjoy boating, scenic viewpoints, and unforgettable sunsets just minutes from Zadokz Farm Stay.",
     image: "/IMAGES/dam.jpg",
     cta: "Explore Attraction"
+  },
+  {
+    id: "05",
+    title: "Banasura Mountain Trekking",
+    distance: "Nearby",
+    description: "Embark on an exhilarating trek up the lush green slopes of the Banasura hills. Perfect for adventure enthusiasts, this trail offers breathtaking panoramic views of the entire Wayanad landscape.",
+    image: "/IMAGES/banasura_trekking.png",
+    cta: "Explore Trail"
+  },
+  {
+    id: "06",
+    title: "Offroad Jeep Adventure",
+    distance: "Nearby",
+    description: "Hold on tight for a thrilling 4x4 offroad jeep ride through the muddy, rugged trails of the dense Wayanad forests. An adrenaline-pumping experience you won't easily forget.",
+    image: "/IMAGES/offroad_adventure.png",
+    cta: "Book Adventure"
+  },
+  {
+    id: "07",
+    title: "Banasura Dam Boat Ride",
+    distance: "2 KM",
+    description: "Drift peacefully along the vast, serene waters of the Banasura Sagar Dam. Surrounded by majestic green hills, this scenic boat ride is the perfect way to relax and soak in nature's beauty.",
+    image: "/IMAGES/boat_ride_dam.png",
+    cta: "Explore Attraction"
   }
 ];
 

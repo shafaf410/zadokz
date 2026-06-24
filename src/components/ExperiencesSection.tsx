@@ -299,14 +299,14 @@ function ExitText() {
       </h2>
 
       <motion.button 
-        onClick={() => document.getElementById('stay')?.scrollIntoView({ behavior: 'smooth' })}
+        onClick={() => document.getElementById('nearby')?.scrollIntoView({ behavior: 'smooth' })}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.8 }}
         className="px-10 py-5 border border-cream/30 text-cream rounded-full text-sm tracking-widest uppercase hover:bg-cream hover:text-charcoal transition-all duration-500"
       >
-        Explore The Estate
+        Explore Wayanad
       </motion.button>
     </div>
   );
