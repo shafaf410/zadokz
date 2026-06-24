@@ -3,7 +3,7 @@ import { MapPin, Mail, Phone, ExternalLink } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-charcoal text-cream pt-16 pb-8 border-t border-cream/10 relative z-10">
+    <footer id="contact" className="bg-charcoal text-cream pt-16 pb-8 border-t border-cream/10 relative z-10">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-12">
           
