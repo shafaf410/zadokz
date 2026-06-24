@@ -67,15 +67,27 @@ export default function DiscoverSection() {
               </motion.div>
 
               <motion.h2 variants={textVariants} className="text-4xl md:text-5xl lg:text-6xl font-light text-forest leading-[1.1] mb-8 text-balance">
-                Enter A World <br /> Hidden In Nature
+                Where Our Story <br className="hidden md:block" /> Became a Stay
               </motion.h2>
 
-              <motion.p variants={textVariants} className="text-charcoal/70 text-lg leading-relaxed mb-6 font-light">
-                Nestled near the serene Banasura Dam in Wayanad, Zadokz Farm Stay is a sanctuary crafted for those who seek to disconnect from the noise and reconnect with the earth.
+              <motion.p variants={textVariants} className="text-charcoal/70 text-base md:text-lg leading-relaxed mb-5 font-light">
+                Zadokz began as our family’s weekend home, a quiet escape where we would gather, slow down, and enjoy the simple beauty of nature. Surrounded by greenery and open skies, it was a place filled with laughter, shared meals, and peaceful moments away from busy city life.
               </motion.p>
               
-              <motion.p variants={textVariants} className="text-charcoal/70 text-lg leading-relaxed mb-10 font-light">
-                Here, luxury is defined by space, tranquility, and the raw beauty of the forest. Whether you are strolling through mist-covered plantations or enjoying a quiet evening by the pool, every moment is an invitation to breathe.
+              <motion.p variants={textVariants} className="text-charcoal/70 text-base md:text-lg leading-relaxed mb-5 font-light">
+                Over time, what started as a private retreat naturally evolved. Friends and extended family who visited often felt the same sense of calm and connection, and soon we opened our doors to welcome guests who were looking for a similar experience.
+              </motion.p>
+
+              <motion.p variants={textVariants} className="text-charcoal/70 text-base md:text-lg leading-relaxed mb-5 font-light">
+                Today, Zadokz Farmstay is a warm countryside escape designed for families, couples, and weekend travellers from Bangalore and nearby cities. While the setting has grown to host more people, the essence remains the same comfort, nature, and a homely atmosphere.
+              </motion.p>
+
+              <motion.p variants={textVariants} className="text-charcoal/70 text-base md:text-lg leading-relaxed mb-5 font-light">
+                We believe in simple living, genuine hospitality, and creating a space where guests can slow down, reconnect, and make meaningful memories. Every stay here is an invitation to experience the peace that first made this place special to us.
+              </motion.p>
+
+              <motion.p variants={textVariants} className="text-charcoal/80 text-lg leading-relaxed mb-10 font-medium italic">
+                We look forward to welcoming you into our story.
               </motion.p>
 
               <motion.div variants={textVariants}>
