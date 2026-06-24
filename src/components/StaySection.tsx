@@ -227,32 +227,7 @@ export default function StaySection() {
 
       </div>
 
-      {/* ========================================== */}
-      {/* SECTION EXIT */}
-      {/* ========================================== */}
-      <div className="relative z-10 container mx-auto px-6 mt-32 md:mt-48 mb-24">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full aspect-[4/3] md:aspect-[21/7] rounded-[32px] overflow-hidden shadow-2xl group flex flex-col items-center justify-center text-center p-8"
-        >
-          <Image src="/IMAGES/plantation walk.jpeg" alt="Experiences" fill className="object-cover transition-transform duration-[10s] ease-out group-hover:scale-105" />
-          <div className="absolute inset-0 bg-charcoal/50" />
-          <div className="relative z-10">
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-[var(--font-boska)] text-cream leading-tight mb-8">
-              Every Stay Tells <br /> A Different Story
-            </h2>
-            <button 
-              onClick={() => document.getElementById('experiences')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 bg-cream text-charcoal rounded-full text-sm tracking-widest uppercase hover:bg-cream/90 transition-all duration-300 font-bold"
-            >
-              Explore Experiences
-            </button>
-          </div>
-        </motion.div>
-      </div>
+
 
       {/* ========================================== */}
       {/* LUXURY DETAIL MODAL / BOTTOM SHEET */}

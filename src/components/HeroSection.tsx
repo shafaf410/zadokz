@@ -129,9 +129,9 @@ export default function HeroSection() {
               className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-cream leading-[1.1] mb-6 max-w-[700px] font-[var(--font-boska)] drop-shadow-2xl"
               style={{ textShadow: "0 4px 30px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5)" }}
             >
-              Stay Where <br />
-              <span className="italic font-light text-cream/90">Nature Feels</span> <br />
-              Like Home
+              Where Farm Life <br />
+              <span className="italic font-light text-cream/90">Meets the Beauty</span> <br />
+              of Wayanad
             </h1>
           </motion.div>
 
