@@ -29,13 +29,23 @@ export default function HeroSection() {
       {/* Background Image with Left-to-Right Dark Overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="w-full h-full pointer-events-none">
+          {/* Desktop Video */}
           <video 
-            src="/bg-video-new.mp4"
+            src="/Laptop.mp4"
             autoPlay 
             loop 
             muted 
             playsInline
-            className="w-full h-full object-cover pointer-events-none"
+            className="hidden md:block w-full h-full object-cover pointer-events-none"
+          />
+          {/* Mobile Video */}
+          <video 
+            src="/mobile.mp4"
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="block md:hidden w-full h-full object-cover pointer-events-none"
           />
         </div>
       </div>
