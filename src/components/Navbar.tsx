@@ -110,8 +110,8 @@ export default function Navbar() {
             <Link href="/gallery" onClick={(e) => handleNavClick(e as any, 'gallery', '/gallery')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Gallery</Link>
             <Link href="/nearby" onClick={(e) => handleNavClick(e as any, 'nearby', '/nearby')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Nearby</Link>
             <button 
-              onClick={(e) => handleNavClick(e, 'contact')}
-              className="mt-8 px-8 py-4 bg-forest text-cream rounded-full text-lg tracking-widest uppercase cursor-pointer flex items-center space-x-3"
+              onClick={(e) => handleNavClick(e as any, 'contact')}
+              className="mt-8 px-8 py-4 bg-forest text-cream rounded-full text-lg tracking-widest uppercase hover:bg-moss transition-colors flex items-center space-x-3 group"
             >
               <span>Contact Us</span>
             </button>

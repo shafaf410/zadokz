@@ -87,6 +87,7 @@ export default function StaySection() {
            animate={{ rotate: 360 }} 
            transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
            className="absolute w-[150vw] h-[150vw] border-[1px] border-charcoal/20 rounded-full" 
+           style={{ willChange: "transform" }}
          />
          <div className="absolute top-1/3 right-0 w-[50vw] h-[50vw] bg-[#2d4229] rounded-full blur-[200px] opacity-[0.03]" />
       </div>
@@ -138,7 +139,7 @@ export default function StaySection() {
           className="hidden lg:flex flex-col space-y-10"
         >
           {/* Featured Accommodation (60/40) */}
-          <motion.div variants={cardVariants} className="w-full">
+          <motion.div variants={cardVariants} className="w-full" style={{ willChange: "transform, opacity" }}>
              <StayCard 
                 stay={ACCOMMODATIONS[0]} 
                 onClick={() => setSelectedStay(ACCOMMODATIONS[0])}
@@ -150,7 +151,7 @@ export default function StaySection() {
 
           {/* Two-Column Portrait Accommodations */}
           <div className="grid grid-cols-2 gap-10">
-            <motion.div variants={cardVariants}>
+            <motion.div variants={cardVariants} style={{ willChange: "transform, opacity" }}>
                <StayCard 
                   stay={ACCOMMODATIONS[1]} 
                   onClick={() => setSelectedStay(ACCOMMODATIONS[1])}
@@ -159,7 +160,7 @@ export default function StaySection() {
                   contentClass="h-1/3 p-10 flex flex-col justify-between"
                />
             </motion.div>
-            <motion.div variants={cardVariants}>
+            <motion.div variants={cardVariants} style={{ willChange: "transform, opacity" }}>
                <StayCard 
                   stay={ACCOMMODATIONS[2]} 
                   onClick={() => setSelectedStay(ACCOMMODATIONS[2])}
@@ -172,7 +173,7 @@ export default function StaySection() {
 
           {/* Compact Accommodations */}
           <div className="grid grid-cols-2 gap-10">
-            <motion.div variants={cardVariants}>
+            <motion.div variants={cardVariants} style={{ willChange: "transform, opacity" }}>
                <StayCard 
                   stay={ACCOMMODATIONS[3]} 
                   onClick={() => setSelectedStay(ACCOMMODATIONS[3])}
@@ -181,7 +182,7 @@ export default function StaySection() {
                   contentClass="w-1/2 p-10"
                />
             </motion.div>
-            <motion.div variants={cardVariants}>
+            <motion.div variants={cardVariants} style={{ willChange: "transform, opacity" }}>
                <StayCard 
                   stay={ACCOMMODATIONS[4]} 
                   onClick={() => setSelectedStay(ACCOMMODATIONS[4])}

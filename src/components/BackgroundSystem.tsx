@@ -42,7 +42,7 @@ export default function BackgroundSystem() {
         }}
         animate={{ opacity: [0.04, 0.07, 0.04] }}
         transition={{ duration: 15, ease: "easeInOut", repeat: Infinity }}
-        className="absolute top-[10%] right-[5%] w-[70vw] h-[70vw] max-w-[800px] max-h-[800px] rounded-full blur-[100px] mix-blend-multiply"
+        className="absolute top-[10%] right-[5%] w-[70vw] h-[70vw] max-w-[800px] max-h-[800px] rounded-full"
       />
 
       {/* LAYER 3: MIST GRADIENT */}
@@ -50,9 +50,9 @@ export default function BackgroundSystem() {
         style={{ x: mistX }}
         animate={{ x: ["-2%", "2%", "-2%"] }}
         transition={{ duration: 30, ease: "easeInOut", repeat: Infinity }}
-        className="absolute inset-0 opacity-60 mix-blend-multiply"
+        className="absolute inset-0 opacity-60"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#52796F]/10 to-transparent w-[150%] h-[150%] -rotate-12 blur-[80px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#52796F]/10 to-transparent w-[150%] h-[150%] -rotate-12" />
       </motion.div>
 
     </div>

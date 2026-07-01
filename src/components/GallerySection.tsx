@@ -113,8 +113,8 @@ export default function GallerySection() {
       
       {/* Scroll Reactive Background Elements */}
       <motion.div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] max-w-[1200px] max-h-[1200px] rounded-full blur-[150px] pointer-events-none z-0"
-        style={{ backgroundColor: "#2d4229", opacity: 0.04, y: bgGlowY }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] max-w-[1200px] max-h-[1200px] rounded-full pointer-events-none z-0"
+        style={{ background: "radial-gradient(circle, rgba(45,66,41,0.08) 0%, rgba(45,66,41,0) 70%)", y: bgGlowY }}
       />
       <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none flex items-center justify-center">
          <motion.div style={{ rotate: contourRotate, scale: 0.8 }} className="w-[120vw] h-[120vw] border-[1px] border-charcoal rounded-full" />
@@ -192,16 +192,14 @@ function GalleryCard({ image, onClick, isMobile = false }: { image: any, onClick
   const { scrollYProgress } = useScroll({ target: cardRef, offset: ["start end", "end start"] });
   const yParallax = useTransform(scrollYProgress, [0, 1], [-image.parallaxOffset, image.parallaxOffset]);
 
-  // Cinematic Reveal Animation
+  // Cinematic Reveal Animation - Simplified for performance
   const revealVariants = {
-    hidden: { opacity: 0, scale: 1.12, filter: "blur(15px)", y: 80, rotate: (Math.random() - 0.5) * 4 },
+    hidden: { opacity: 0, scale: 1.05, y: 50 },
     visible: { 
       opacity: 1, 
       scale: 1, 
-      filter: "blur(0px)", 
       y: 0, 
-      rotate: 0,
-      transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as any, delay: (image.id % 3) * 0.15 } 
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as any, delay: (image.id % 3) * 0.1 } 
     }
   };
 
@@ -211,11 +209,12 @@ function GalleryCard({ image, onClick, isMobile = false }: { image: any, onClick
       variants={revealVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: "-50px" }}
       className={`relative w-full overflow-hidden cursor-pointer group ${image.sizeClass} ${
         image.isFeatured && !isMobile ? "scale-105 shadow-2xl z-10 rounded-[32px] border border-charcoal/10" : "rounded-2xl md:rounded-3xl"
       }`}
       onClick={onClick}
+      style={{ willChange: "transform, opacity" }}
     >
       {/* Floating Ambient Animation */}
       <motion.div 

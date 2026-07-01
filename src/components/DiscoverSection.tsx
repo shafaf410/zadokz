@@ -27,6 +27,7 @@ export default function DiscoverSection() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1.2, ease: "easeOut" }}
               className="absolute left-0 w-[80%] h-[80%] md:h-full rounded-[32px] overflow-hidden shadow-2xl z-10"
+              style={{ willChange: "transform, opacity" }}
             >
               <Image 
                 src="/IMAGES/COTTAGE 1/WhatsApp Image 2026-06-22 at 5.10.21 PM.jpeg" // Using actual image path
@@ -43,6 +44,7 @@ export default function DiscoverSection() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="absolute right-0 bottom-10 w-[50%] md:w-[60%] aspect-[3/4] rounded-[24px] overflow-hidden shadow-2xl z-20 border-4 border-cream"
+              style={{ willChange: "transform, opacity" }}
             >
               <Image 
                 src="/IMAGES/COTTAGE 1/STAIR WAY.jpeg" // Using actual image path

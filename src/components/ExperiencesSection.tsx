@@ -122,11 +122,11 @@ export default function ExperiencesSection() {
       {/* Contour Halo Background */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none flex items-center justify-center">
          <motion.div 
-            style={{ scale: useTransform(scrollYProgress, [0, 1], [0.8, 1.2]) }}
+            style={{ scale: useTransform(scrollYProgress, [0, 1], [0.8, 1.2]), willChange: "transform" }}
             className="w-[120vw] h-[120vw] border-[1px] border-cream rounded-full"
          />
          <motion.div 
-            style={{ scale: useTransform(scrollYProgress, [0, 1], [0.9, 1.4]) }}
+            style={{ scale: useTransform(scrollYProgress, [0, 1], [0.9, 1.4]), willChange: "transform" }}
             className="absolute w-[150vw] h-[150vw] border-[1px] border-cream rounded-full"
          />
       </div>
@@ -218,7 +218,7 @@ function DesktopExperienceCard({ exp, index, className }: { exp: any, index: num
       whileHover={{ y: -10, transition: { duration: 0.4, ease: "easeOut" } }}
     >
       {/* Image Parallax Container */}
-      <motion.div className="absolute inset-0 w-full h-[130%]" style={{ y: yParallax, top: "-15%" }}>
+      <motion.div className="absolute inset-0 w-full h-[130%]" style={{ y: yParallax, top: "-15%", willChange: "transform" }}>
         <ImageCrossfade images={exp.images} />
       </motion.div>
       
