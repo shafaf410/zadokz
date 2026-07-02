@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { X, ArrowUpRight, Maximize2, Users, Scaling, Bath } from "lucide-react";
-import HeritageCottagePage from "./HeritageCottagePage";
 
 // Placeholder data - using existing cottage images as high-quality placeholders
 const ACCOMMODATIONS = [
@@ -73,11 +72,10 @@ const cardVariants: any = {
 
 export default function StaySection() {
   const [selectedStay, setSelectedStay] = useState<any | null>(null);
-  const [showHeritagePage, setShowHeritagePage] = useState(false);
 
   // Lock body scroll when modal is open
   if (typeof window !== "undefined") {
-    // Lenis prevents body scrolling on its own or we rely on data-lenis-prevent
+    document.body.style.overflow = selectedStay ? "hidden" : "auto";
   }
 
   return (
@@ -144,11 +142,10 @@ export default function StaySection() {
           <motion.div variants={cardVariants} className="w-full" style={{ willChange: "transform, opacity" }}>
              <StayCard 
                 stay={ACCOMMODATIONS[0]} 
-                onClick={() => setShowHeritagePage(true)}
+                onClick={() => setSelectedStay(ACCOMMODATIONS[0])}
                 className="grid grid-cols-12 h-[70vh]"
                 imageClass="col-span-7 h-full"
                 contentClass="col-span-5 h-full p-16 flex flex-col justify-center"
-                imageLayoutId="heritage-cottage-image"
              />
           </motion.div>
 
@@ -213,11 +210,10 @@ export default function StaySection() {
               >
                 <StayCard 
                   stay={stay} 
-                  onClick={() => stay.id === "stay-01" ? setShowHeritagePage(true) : setSelectedStay(stay)}
+                  onClick={() => setSelectedStay(stay)}
                   className="flex flex-col h-auto aspect-[4/5] sm:aspect-[3/4]"
                   imageClass="h-[60%]"
                   contentClass="h-[40%] p-6 flex flex-col justify-between"
-                  imageLayoutId={stay.id === "stay-01" ? "heritage-cottage-image" : undefined}
                 />
               </motion.div>
             ))}
@@ -317,15 +313,6 @@ export default function StaySection() {
         )}
       </AnimatePresence>
 
-      {/* ========================================== */}
-      {/* HERITAGE COTTAGE VIRTUAL PAGE              */}
-      {/* ========================================== */}
-      <AnimatePresence>
-        {showHeritagePage && (
-          <HeritageCottagePage onClose={() => setShowHeritagePage(false)} />
-        )}
-      </AnimatePresence>
-
     </section>
   );
 }
@@ -339,33 +326,21 @@ interface StayCardProps {
   className?: string;
   imageClass?: string;
   contentClass?: string;
-  imageLayoutId?: string;
 }
 
-function StayCard({ stay, onClick, className = "", imageClass = "", contentClass = "", imageLayoutId }: StayCardProps) {
+function StayCard({ stay, onClick, className = "", imageClass = "", contentClass = "" }: StayCardProps) {
   return (
     <div 
       onClick={onClick}
       className={`group bg-white rounded-[32px] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-2 ${className}`}
     >
       <div className={`relative overflow-hidden ${imageClass}`}>
-        {imageLayoutId ? (
-          <motion.div layoutId={imageLayoutId} className="absolute inset-0 z-0">
-            <Image 
-              src={stay.image} 
-              alt={stay.title} 
-              fill 
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-          </motion.div>
-        ) : (
-          <Image 
-            src={stay.image} 
-            alt={stay.title} 
-            fill 
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          />
-        )}
+        <Image 
+          src={stay.image} 
+          alt={stay.title} 
+          fill 
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        />
         {/* Glassmorphism gradient overlay on hover */}
         <div className="absolute inset-0 bg-gradient-to-t from-forest/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
         
