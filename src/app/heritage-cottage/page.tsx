@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import { Fraunces, Karla, IBM_Plex_Mono } from "next/font/google";
-import { BedDouble, Bath, Coffee, Sun, TreePine, ArrowUpRight, Menu, X, MapPin, Phone, Mail } from "lucide-react";
+import { BedDouble, Bath, Coffee, Sun, TreePine, ArrowUpRight, Menu, X, MapPin, Phone, Mail, Users } from "lucide-react";
 
 // Font configurations
 const fraunces = Fraunces({
