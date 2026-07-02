@@ -67,14 +67,14 @@ export default function HeroSection() {
       </div>
 
       {/* Main Content Area */}
-      <div className="container relative z-20 mx-auto px-6 md:px-12 h-full flex flex-col md:flex-row items-start md:items-center pt-24 md:pt-32 pb-16 md:pb-0 flex-1">
+      <div className="container relative z-20 mx-auto px-6 md:px-12 h-full flex flex-col md:flex-row items-start md:items-center md:justify-end pt-24 md:pt-32 pb-16 md:pb-0 flex-1">
         
-        {/* LEFT COLUMN (55%) */}
+        {/* RIGHT COLUMN (55%) */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="w-full md:w-[55%] flex flex-col justify-end md:justify-center h-full max-w-[650px] pr-4 md:pr-8 lg:pr-16"
+          className="w-full md:w-[55%] flex flex-col justify-end md:justify-center h-full max-w-[650px] md:pl-8 lg:pl-16"
         >
           <motion.div variants={itemVariants} className="mb-4 md:mb-6 inline-flex items-center space-x-3 mt-4 md:mt-0 drop-shadow-md">
             <div className="w-8 h-[2px] bg-cream"></div>
@@ -83,7 +83,7 @@ export default function HeroSection() {
           
           <motion.div variants={itemVariants}>
             <h1 
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] text-cream leading-[1.1] mb-6 max-w-[700px] font-[var(--font-boska)] drop-shadow-2xl"
+              className="text-4xl sm:text-5xl md:text-5xl lg:text-[3.75rem] text-cream leading-[1.1] mb-6 max-w-[700px] font-[var(--font-boska)] drop-shadow-2xl"
               style={{ textShadow: "0 4px 30px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5)" }}
             >
               Where Farm Life <br />
