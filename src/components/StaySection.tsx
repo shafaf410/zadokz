@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { X, ArrowUpRight, Maximize2, Users, Scaling, Bath } from "lucide-react";
 
 // Placeholder data - using existing cottage images as high-quality placeholders
@@ -15,7 +16,8 @@ const ACCOMMODATIONS = [
     features: ["Private Veranda", "Antique Furnishings", "Panoramic Views", "Premium Bath Amenities"],
     capacity: "Up to 4 Guests",
     size: "850 sq ft",
-    image: "/IMAGES/COTTAGE 1/COTTAGE FRONT.jpeg"
+    image: "/IMAGES/COTTAGE 1/COTTAGE FRONT.jpeg",
+    link: "/heritage-cottage"
   },
   {
     id: "stay-02",
@@ -72,6 +74,7 @@ const cardVariants: any = {
 
 export default function StaySection() {
   const [selectedStay, setSelectedStay] = useState<any | null>(null);
+  const router = useRouter();
 
   // Lock body scroll when modal is open
   if (typeof window !== "undefined") {
@@ -142,7 +145,7 @@ export default function StaySection() {
           <motion.div variants={cardVariants} className="w-full" style={{ willChange: "transform, opacity" }}>
              <StayCard 
                 stay={ACCOMMODATIONS[0]} 
-                onClick={() => setSelectedStay(ACCOMMODATIONS[0])}
+                onClick={() => ACCOMMODATIONS[0].link ? router.push(ACCOMMODATIONS[0].link) : setSelectedStay(ACCOMMODATIONS[0])}
                 className="grid grid-cols-12 h-[70vh]"
                 imageClass="col-span-7 h-full"
                 contentClass="col-span-5 h-full p-16 flex flex-col justify-center"
@@ -210,7 +213,7 @@ export default function StaySection() {
               >
                 <StayCard 
                   stay={stay} 
-                  onClick={() => setSelectedStay(stay)}
+                  onClick={() => stay.link ? router.push(stay.link) : setSelectedStay(stay)}
                   className="flex flex-col h-auto aspect-[4/5] sm:aspect-[3/4]"
                   imageClass="h-[60%]"
                   contentClass="h-[40%] p-6 flex flex-col justify-between"
