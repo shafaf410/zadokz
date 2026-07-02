@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import { Fraunces, Karla, IBM_Plex_Mono } from "next/font/google";
 import { BedDouble, Bath, Coffee, Sun, TreePine, ArrowUpRight, Menu, X, MapPin, Phone, Mail, Users } from "lucide-react";
+import Navbar from "@/components/Navbar";
 
 // Font configurations
 const fraunces = Fraunces({
@@ -56,10 +57,10 @@ export default function HeritageCottagePage() {
 
   // Gallery structure for filmstrip
   const gallery = [
-    { src: "/IMAGES/heritage-cottage/cover.jpeg", caption: "The quiet exterior", aspect: "aspect-[4/3]", rotate: "rotate-[-1.5deg]" },
-    { src: "/IMAGES/heritage-cottage/1.jpeg", caption: "Where the family gathers", aspect: "aspect-[3/4]", rotate: "rotate-[2deg]" },
-    { src: "/IMAGES/heritage-cottage/2.jpeg", caption: "Teak & heritage furniture", aspect: "aspect-[4/3]", rotate: "rotate-[-2deg]" },
-    { src: "/IMAGES/heritage-cottage/3.jpeg", caption: "Misty morning views", aspect: "aspect-[1/1]", rotate: "rotate-[1.5deg]" },
+    { src: "/IMAGES/heritage-cottage/cover.jpeg", caption: "The quiet exterior", aspect: "aspect-[4/3]" },
+    { src: "/IMAGES/heritage-cottage/1.jpeg", caption: "Where the family gathers", aspect: "aspect-[3/4]" },
+    { src: "/IMAGES/heritage-cottage/2.jpeg", caption: "Teak & heritage furniture", aspect: "aspect-[4/3]" },
+    { src: "/IMAGES/heritage-cottage/3.jpeg", caption: "Misty morning views", aspect: "aspect-[1/1]" },
   ];
 
   return (
@@ -112,86 +113,7 @@ export default function HeritageCottagePage() {
       `}} />
 
       {/* 1. Nav */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${isScrolled ? 'bg-[var(--ivory)] shadow-[0_1px_0_0_color-mix(in_srgb,var(--sage-muted)_15%,transparent)]' : 'bg-gradient-to-b from-black/40 to-transparent'}`}>
-        <div className="base-spacing h-20 md:h-24 flex items-center justify-between">
-          
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group z-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--terracotta)] rounded-sm">
-            {/* Warli Icon */}
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={isScrolled ? 'stroke-[var(--forest)]' : 'stroke-white'}>
-              <path d="M12 4L8 10L12 16L16 10L12 4Z" strokeWidth="1.5" strokeLinejoin="round"/>
-              <circle cx="12" cy="4" r="2" strokeWidth="1.5"/>
-              <path d="M8 10L4 12" strokeWidth="1.5" strokeLinecap="round"/>
-              <path d="M16 10L20 12" strokeWidth="1.5" strokeLinecap="round"/>
-              <path d="M12 16L9 22" strokeWidth="1.5" strokeLinecap="round"/>
-              <path d="M12 16L15 22" strokeWidth="1.5" strokeLinecap="round"/>
-            </svg>
-            <div className={`flex flex-col ${isScrolled ? 'text-[var(--forest)]' : 'text-white'}`}>
-              <span className="font-display text-xl leading-none tracking-wide">ZADOKZ</span>
-              <span className="font-mono text-[9px] tracking-[0.2em] mt-0.5">FARMS</span>
-            </div>
-          </Link>
-
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-8 lg:space-x-12 font-mono text-[11px] tracking-[0.08em] uppercase">
-            {['STAY', 'EXPERIENCES', 'GALLERY', 'NEARBY'].map(link => (
-              <Link 
-                key={link} 
-                href={`/#${link.toLowerCase()}`}
-                className={`transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--terracotta)] rounded-sm px-2 py-1 ${isScrolled ? 'text-[var(--forest)] hover:text-[var(--terracotta)]' : 'text-white/90 hover:text-white'}`}
-              >
-                {link}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Contact Button Desktop */}
-          <div className="hidden md:block">
-            <Link 
-              href="/#contact"
-              className={`font-mono text-[11px] tracking-[0.08em] uppercase border rounded-full px-6 py-2.5 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold-mist)]
-                ${isScrolled 
-                  ? 'border-[var(--forest)] text-[var(--forest)] hover:bg-[var(--forest)] hover:text-[var(--ivory)]' 
-                  : 'border-white text-white hover:bg-white hover:text-[var(--forest)]'}`}
-            >
-              CONTACT US
-            </Link>
-          </div>
-
-          {/* Mobile Menu Toggle */}
-          <button 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden z-50 p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--terracotta)] rounded-sm ${isScrolled || isMobileMenuOpen ? 'text-[var(--forest)]' : 'text-white'}`}
-          >
-            {isMobileMenuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
-          </button>
-        </div>
-      </header>
-
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-[var(--ivory)] z-40 pt-28 px-6 flex flex-col">
-          <nav className="flex flex-col space-y-6 font-display text-3xl">
-            {['Stay', 'Experiences', 'Gallery', 'Nearby'].map(link => (
-              <Link 
-                key={link} 
-                href={`/#${link.toLowerCase()}`}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-[var(--forest)] pb-4 border-b hairline-divider focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--terracotta)] rounded-sm"
-              >
-                {link}
-              </Link>
-            ))}
-            <Link 
-              href="/#contact"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-[var(--terracotta)] pt-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--terracotta)] rounded-sm inline-block"
-            >
-              Contact Us
-            </Link>
-          </nav>
-        </div>
-      )}
+      <Navbar />
 
       {/* 2. Hero */}
       <section className="relative w-full h-[70vh] bg-neutral-900 overflow-hidden">
@@ -228,20 +150,16 @@ export default function HeritageCottagePage() {
 
       {/* 3. Gallery Filmstrip */}
       <section className="py-16 md:py-24 base-spacing bg-[var(--ivory)] overflow-hidden">
-        <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar space-x-6 md:space-x-12 pb-12 -mx-6 px-6 md:mx-0 md:px-0">
+        <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar space-x-6 md:space-x-8 pb-12 -mx-6 px-6 md:mx-0 md:px-0">
           {gallery.map((img, i) => (
-            <div key={i} className="snap-center shrink-0 w-[85vw] max-w-[400px] md:w-[32vw] md:max-w-none group focus-within:outline-none">
-              <div 
-                className={`bg-[var(--ivory)] p-3 md:p-[12px] rounded-[2px] shadow-[0_4px_24px_rgba(43,43,40,0.06)] border border-[var(--sage-muted)]/10 transition-transform duration-500 ease-out md:group-hover:rotate-0 ${img.rotate} `}
-              >
-                <div className={`relative w-full ${img.aspect} overflow-hidden rounded-[2px]`}>
-                  <Image 
-                    src={img.src} 
-                    alt={img.caption} 
-                    fill 
-                    className="object-cover" 
-                  />
-                </div>
+            <div key={i} className="snap-center shrink-0 w-[85vw] max-w-[450px] md:w-[35vw] md:max-w-none group focus-within:outline-none">
+              <div className={`relative w-full ${img.aspect} overflow-hidden rounded-[16px] shadow-lg`}>
+                <Image 
+                  src={img.src} 
+                  alt={img.caption} 
+                  fill 
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
+                />
               </div>
               <p className="font-display italic text-[var(--forest)] text-lg md:text-xl mt-6 text-center opacity-80">
                 {img.caption}
