@@ -12,18 +12,26 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="relative min-h-screen text-charcoal font-sans selection:bg-forest selection:text-cream">
-      <BackgroundSystem />
       <Navbar />
       
-      <HeroSection />
-      <DiscoverSection />
-      <StaySection />
-      <ExperiencesSection />
-      <TestimonialsSection />
+      {/* Sticky Hero Container */}
+      <div className="relative h-[100svh] w-full">
+        <div className="sticky top-0 h-[100svh] w-full z-0">
+          <HeroSection />
+        </div>
+      </div>
 
-
-
-      <Footer />
+      {/* Solid Curtain Content */}
+      <div className="relative z-10 shadow-2xl bg-cream">
+        <BackgroundSystem />
+        <div className="relative z-10">
+          <DiscoverSection />
+          <StaySection />
+          <ExperiencesSection />
+          <TestimonialsSection />
+          <Footer />
+        </div>
+      </div>
     </main>
   );
 }

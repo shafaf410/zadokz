@@ -11,7 +11,8 @@ export default function BackgroundSystem() {
   const mistX = useTransform(scrollY, [0, 1000], [0, 40]);
 
   return (
-    <div className="fixed inset-0 z-[-1] pointer-events-none overflow-hidden bg-cream">
+    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      <div className="sticky top-0 h-[100svh] w-full bg-cream">
       
       {/* LAYER 1: CONTOUR HALO */}
       <motion.div
@@ -55,6 +56,7 @@ export default function BackgroundSystem() {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#52796F]/10 to-transparent w-[150%] h-[150%] -rotate-12" />
       </motion.div>
 
+      </div>
     </div>
   );
 }
