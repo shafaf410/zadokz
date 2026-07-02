@@ -200,11 +200,9 @@ export default function HeritageCottagePage() {
             <h2 className="font-display text-3xl md:text-4xl text-[var(--forest)] mb-4">About the Cottage</h2>
             <div className="w-12 h-[2px] bg-[var(--terracotta)] mb-8" />
             
-            <p className="font-body text-lg md:text-xl leading-[1.7] text-[var(--forest)]/90 mb-16">
+            <p className="font-body text-lg md:text-xl leading-[1.7] text-[var(--forest)]/90 mb-8">
               Wake to mist-covered mornings and birdsong in our welcoming 2BHK Heritage Cottage — a place to slow down and feel at home.
             </p>
-
-            <h3 className="font-display text-2xl md:text-3xl text-[var(--forest)] mb-10">Cottage Highlights</h3>
             
             <ul className="flex flex-col space-y-0">
               {highlights.map((item, idx) => (
