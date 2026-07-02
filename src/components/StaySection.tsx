@@ -77,7 +77,7 @@ export default function StaySection() {
 
   // Lock body scroll when modal is open
   if (typeof window !== "undefined") {
-    document.body.style.overflow = (selectedStay || showHeritagePage) ? "hidden" : "auto";
+    // Lenis prevents body scrolling on its own or we rely on data-lenis-prevent
   }
 
   return (

@@ -38,19 +38,15 @@ export default function HeritageCottagePage({ onClose }: Props) {
     if (containerRef.current) {
       containerRef.current.scrollTo(0, 0);
     }
-    // Prevent background scrolling
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
   }, []);
 
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
 
   return (
     <motion.div 
-      data-lenis-prevent
+      data-lenis-prevent="true"
       onWheel={(e) => e.stopPropagation()}
+      onTouchMove={(e) => e.stopPropagation()}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.6 } }}
