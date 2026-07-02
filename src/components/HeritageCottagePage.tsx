@@ -118,18 +118,6 @@ export default function HeritageCottagePage({ onClose }: Props) {
               <button className="w-full sm:w-auto px-8 py-4 bg-cream/10 backdrop-blur-md border border-cream/30 text-cream rounded-full text-sm tracking-widest uppercase hover:bg-cream hover:text-forest transition-all duration-500 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
                 Book Your Stay
               </button>
-              <button 
-                onClick={() => {
-                  const el = document.getElementById("explore-cottage");
-                  if (el && containerRef.current) {
-                     containerRef.current.scrollTo({ top: el.offsetTop, behavior: 'smooth' });
-                  }
-                }}
-                className="w-full sm:w-auto px-8 py-4 bg-transparent text-cream rounded-full text-sm tracking-widest uppercase hover:bg-cream/5 transition-all duration-500 flex items-center justify-center space-x-2 group"
-              >
-                <span>Explore Cottage</span>
-                <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
-              </button>
             </div>
           </motion.div>
         </div>
