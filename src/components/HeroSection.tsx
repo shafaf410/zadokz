@@ -3,8 +3,20 @@
 import { motion, Variants } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 export default function HeroSection() {
+  const desktopVideoRef = useRef<HTMLVideoElement>(null);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (desktopVideoRef.current) {
+      desktopVideoRef.current.play().catch(e => console.error("Desktop video autoplay failed", e));
+    }
+    if (mobileVideoRef.current) {
+      mobileVideoRef.current.play().catch(e => console.error("Mobile video autoplay failed", e));
+    }
+  }, []);
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -31,20 +43,24 @@ export default function HeroSection() {
         <div className="w-full h-full pointer-events-none">
           {/* Desktop Video */}
           <video 
+            ref={desktopVideoRef}
             src="/Laptop.mp4"
             autoPlay 
             loop 
             muted 
             playsInline
+            preload="auto"
             className="hidden md:block w-full h-full object-cover pointer-events-none"
           />
           {/* Mobile Video */}
           <video 
+            ref={mobileVideoRef}
             src="/mobile.mp4"
             autoPlay 
             loop 
             muted 
             playsInline
+            preload="auto"
             className="block md:hidden w-full h-full object-cover pointer-events-none"
           />
         </div>
