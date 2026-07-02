@@ -67,14 +67,14 @@ export default function HeroSection() {
       </div>
 
       {/* Main Content Area */}
-      <div className="container relative z-20 mx-auto px-6 md:px-12 h-auto md:h-full flex flex-col md:flex-row items-center pt-32 md:pt-32 pb-4 md:py-0 flex-1">
+      <div className="container relative z-20 mx-auto px-6 md:px-12 h-full flex flex-col md:flex-row items-start md:items-center pt-24 md:pt-32 pb-16 md:pb-0 flex-1">
         
         {/* LEFT COLUMN (55%) */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="w-full md:w-[55%] flex flex-col justify-start md:justify-center h-full max-w-[650px] pr-4 md:pr-8 lg:pr-16"
+          className="w-full md:w-[55%] flex flex-col justify-end md:justify-center h-full max-w-[650px] pr-4 md:pr-8 lg:pr-16"
         >
           <motion.div variants={itemVariants} className="mb-4 md:mb-6 inline-flex items-center space-x-3 mt-4 md:mt-0 drop-shadow-md">
             <div className="w-8 h-[2px] bg-cream"></div>
