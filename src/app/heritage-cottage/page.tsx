@@ -210,7 +210,7 @@ export default function HeritageCottagePage() {
               {highlights.map((item, idx) => (
                 <li 
                   key={idx} 
-                  className="flex items-start space-x-6 py-6 border-b hairline-divider group transition-all duration-300 border-l-[2px] border-transparent hover:border-l-[var(--terracotta)] hover:pl-4 focus-within:border-l-[var(--terracotta)] focus-within:pl-4"
+                  className="flex items-start space-x-6 py-6 border-b hairline-divider group transition-colors"
                   tabIndex={0}
                 >
                   <div className="mt-1 text-[var(--forest)]">{item.icon}</div>
@@ -225,7 +225,7 @@ export default function HeritageCottagePage() {
 
           {/* Right Column - Booking Card */}
           <div className="w-full lg:w-[40%]">
-            <div className="lg:sticky lg:top-32 bg-[var(--forest)] text-[var(--ivory)] rounded-[8px] p-8 md:p-10 shadow-[0_12px_40px_rgba(31,46,28,0.15)] relative overflow-hidden">
+            <div className="bg-[var(--forest)] text-[var(--ivory)] rounded-[8px] p-8 md:p-10 shadow-[0_12px_40px_rgba(31,46,28,0.15)] relative overflow-hidden">
               {/* Terracotta Top Edge */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-[var(--terracotta)]" />
               
