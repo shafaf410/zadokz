@@ -58,9 +58,9 @@ export default function HeritageCottagePage() {
   // Gallery structure for filmstrip
   const gallery = [
     { src: "/IMAGES/heritage-cottage/cover.jpeg", caption: "The quiet exterior", aspect: "aspect-[4/3]" },
-    { src: "/IMAGES/heritage-cottage/1.jpeg", caption: "Where the family gathers", aspect: "aspect-[3/4]" },
+    { src: "/IMAGES/heritage-cottage/1.jpeg", caption: "Where the family gathers", aspect: "aspect-[4/3]" },
     { src: "/IMAGES/heritage-cottage/2.jpeg", caption: "Teak & heritage furniture", aspect: "aspect-[4/3]" },
-    { src: "/IMAGES/heritage-cottage/3.jpeg", caption: "Misty morning views", aspect: "aspect-[1/1]" },
+    { src: "/IMAGES/heritage-cottage/3.jpeg", caption: "Misty morning views", aspect: "aspect-[4/3]" },
   ];
 
   return (
