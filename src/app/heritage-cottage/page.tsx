@@ -55,13 +55,6 @@ export default function HeritageCottagePage() {
     { icon: <TreePine size={20} strokeWidth={1.5} />, title: "Peaceful Farm Surroundings", desc: "Surrounded by a lush green farm." },
   ];
 
-  // Gallery structure for filmstrip
-  const gallery = [
-    { src: "/IMAGES/heritage-cottage/cover.jpeg", caption: "The quiet exterior", aspect: "aspect-[4/3]" },
-    { src: "/IMAGES/heritage-cottage/1.jpeg", caption: "Where the family gathers", aspect: "aspect-[4/3]" },
-    { src: "/IMAGES/heritage-cottage/2.jpeg", caption: "Teak & heritage furniture", aspect: "aspect-[4/3]" },
-    { src: "/IMAGES/heritage-cottage/3.jpeg", caption: "Misty morning views", aspect: "aspect-[4/3]" },
-  ];
 
   return (
     <div className={`heritage-theme ${fraunces.variable} ${karla.variable} ${plexMono.variable} min-h-screen bg-[var(--ivory)] text-[var(--forest)] font-body selection:bg-[var(--forest)] selection:text-[var(--ivory)] overflow-x-hidden`}>
@@ -148,24 +141,53 @@ export default function HeritageCottagePage() {
         </div>
       </section>
 
-      {/* 3. Gallery Filmstrip */}
-      <section className="py-16 md:py-24 base-spacing bg-[var(--ivory)] overflow-hidden">
-        <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar space-x-6 md:space-x-8 pb-12 -mx-6 px-6 md:mx-0 md:px-0">
-          {gallery.map((img, i) => (
-            <div key={i} className="snap-center shrink-0 w-[85vw] max-w-[450px] md:w-[35vw] md:max-w-none group focus-within:outline-none">
-              <div className={`relative w-full ${img.aspect} overflow-hidden rounded-[16px] shadow-lg`}>
-                <Image 
-                  src={img.src} 
-                  alt={img.caption} 
-                  fill 
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
-                />
-              </div>
-              <p className="font-display italic text-[var(--forest)] text-lg md:text-xl mt-6 text-center opacity-80">
-                {img.caption}
-              </p>
-            </div>
-          ))}
+      {/* 3. Gallery Grid */}
+      <section className="py-16 md:py-24 base-spacing bg-[var(--ivory)]">
+        <h2 className="font-display text-3xl md:text-4xl text-[var(--forest)] mb-10">Glimpses of the Cottage</h2>
+        
+        {/* Mobile: Simple stack or horizontal scroll, Desktop: Airbnb style grid */}
+        <div className="flex overflow-x-auto md:grid md:grid-cols-4 md:grid-rows-2 gap-4 h-[400px] md:h-[60vh] min-h-[400px] snap-x snap-mandatory hide-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
+          
+          {/* Main Large Image */}
+          <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-2 md:row-span-2 relative rounded-2xl md:rounded-r-none md:rounded-l-2xl overflow-hidden group">
+            <Image 
+              src="/IMAGES/heritage-cottage/cover.jpeg" 
+              alt="The quiet exterior" 
+              fill 
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
+            />
+          </div>
+          
+          {/* Top Right Image */}
+          <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-2 md:row-span-1 relative rounded-2xl md:rounded-none md:rounded-tr-2xl overflow-hidden group">
+            <Image 
+              src="/IMAGES/heritage-cottage/1.jpeg" 
+              alt="Where the family gathers" 
+              fill 
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
+            />
+          </div>
+          
+          {/* Bottom Right - Left Image */}
+          <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-1 md:row-span-1 relative rounded-2xl md:rounded-none overflow-hidden group">
+            <Image 
+              src="/IMAGES/heritage-cottage/2.jpeg" 
+              alt="Teak & heritage furniture" 
+              fill 
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
+            />
+          </div>
+          
+          {/* Bottom Right - Right Image */}
+          <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-1 md:row-span-1 relative rounded-2xl md:rounded-none md:rounded-br-2xl overflow-hidden group">
+            <Image 
+              src="/IMAGES/heritage-cottage/3.jpeg" 
+              alt="Misty morning views" 
+              fill 
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
+            />
+          </div>
+          
         </div>
       </section>
 
