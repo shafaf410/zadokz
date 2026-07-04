@@ -14,7 +14,7 @@ export default function DiscoverSection() {
   };
 
   return (
-    <section id="discover" className="py-32 md:py-48 text-charcoal relative z-10">
+    <section id="discover" className="pt-32 pb-12 md:pt-48 md:pb-16 text-charcoal relative z-10">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-start relative">
           

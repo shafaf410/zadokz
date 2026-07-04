@@ -22,22 +22,23 @@ const ACCOMMODATIONS = [
   {
     id: "stay-02",
     title: "Private Glass Room",
-    tagline: "Immersive nature living with 360-degree views.",
-    description: "Experience the magic of sleeping under the stars. The Private Glass Room surrounds you with lush foliage while offering complete climate-controlled comfort and luxury.",
+    tagline: "Wake to Misty Mornings & Panoramic Hill Views",
+    description: "Immersive nature living with 360-degree views.",
     features: ["360° Glass Walls", "Stargazing Roof", "Climate Control", "Private Garden"],
     capacity: "2 Guests",
     size: "450 sq ft",
-    image: "/IMAGES/COTTAGE 1/DINING SPACE LOOKING BANSURA.jpeg"
+    image: "/private%20glass%20room/cover%20photo.JPEG",
+    link: "/private-glass-room"
   },
   {
     id: "stay-03",
-    title: "Ginger Poolside Room",
-    tagline: "Step directly from your bed to the water.",
-    description: "Located mere steps from our infinity pool, the Ginger Room offers a vibrant, refreshing atmosphere with direct water access and stunning sunset views.",
-    features: ["Direct Pool Access", "Private Deck", "Sun Loungers", "Rain Shower"],
-    capacity: "2 Guests",
-    size: "500 sq ft",
-    image: "/IMAGES/COTTAGE 1/POOL.jpeg"
+    title: "The Block",
+    tagline: "Designed for togetherness and lasting memories.",
+    description: "The Block is designed for togetherness. Whether it's a family getaway, a weekend with friends, or an office retreat, its four private rooms and open common space create the perfect setting to connect, unwind, and make lasting memories against the backdrop of the Banasura hills.",
+    features: ["4 Spacious Bedrooms with Attached Bathrooms", "Open Dining space with panoramic view", "Spacious Private balconies", "Misty Morning Views", "Peaceful Farm Surroundings"],
+    capacity: "Up to 6 Guests",
+    size: "1500 sq ft",
+    image: "/IMAGES/COTTAGE 1/ROOM4.jpeg"
   },
   {
     id: "stay-04",
@@ -47,7 +48,7 @@ const ACCOMMODATIONS = [
     features: ["Forest Views", "Plush Bedding", "Smart TV", "Work Desk"],
     capacity: "2 Guests",
     size: "350 sq ft",
-    image: "/IMAGES/COTTAGE 1/ROOM4.jpeg"
+    image: "/IMAGES/COTTAGE 1/POOL.jpeg"
   },
   {
     id: "stay-05",
@@ -82,7 +83,7 @@ export default function StaySection() {
   }
 
   return (
-    <section id="stay" className="relative w-full overflow-hidden py-32 md:py-48 text-charcoal">
+    <section id="stay" className="relative w-full overflow-hidden pt-16 pb-32 md:pt-24 md:pb-48 text-charcoal">
       
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center opacity-30">
@@ -157,7 +158,7 @@ export default function StaySection() {
             <motion.div variants={cardVariants} style={{ willChange: "transform, opacity" }}>
                <StayCard 
                   stay={ACCOMMODATIONS[1]} 
-                  onClick={() => setSelectedStay(ACCOMMODATIONS[1])}
+                  onClick={() => ACCOMMODATIONS[1].link ? router.push(ACCOMMODATIONS[1].link) : setSelectedStay(ACCOMMODATIONS[1])}
                   className="flex flex-col h-[85vh]"
                   imageClass="h-2/3"
                   contentClass="h-1/3 p-10 flex flex-col justify-between"
@@ -166,7 +167,7 @@ export default function StaySection() {
             <motion.div variants={cardVariants} style={{ willChange: "transform, opacity" }}>
                <StayCard 
                   stay={ACCOMMODATIONS[2]} 
-                  onClick={() => setSelectedStay(ACCOMMODATIONS[2])}
+                  onClick={() => ACCOMMODATIONS[2].link ? router.push(ACCOMMODATIONS[2].link) : setSelectedStay(ACCOMMODATIONS[2])}
                   className="flex flex-col h-[85vh]"
                   imageClass="h-2/3"
                   contentClass="h-1/3 p-10 flex flex-col justify-between"
@@ -179,7 +180,7 @@ export default function StaySection() {
             <motion.div variants={cardVariants} style={{ willChange: "transform, opacity" }}>
                <StayCard 
                   stay={ACCOMMODATIONS[3]} 
-                  onClick={() => setSelectedStay(ACCOMMODATIONS[3])}
+                  onClick={() => ACCOMMODATIONS[3].link ? router.push(ACCOMMODATIONS[3].link) : setSelectedStay(ACCOMMODATIONS[3])}
                   className="flex flex-row h-[40vh] items-center"
                   imageClass="w-1/2 h-full"
                   contentClass="w-1/2 p-10"
@@ -188,7 +189,7 @@ export default function StaySection() {
             <motion.div variants={cardVariants} style={{ willChange: "transform, opacity" }}>
                <StayCard 
                   stay={ACCOMMODATIONS[4]} 
-                  onClick={() => setSelectedStay(ACCOMMODATIONS[4])}
+                  onClick={() => ACCOMMODATIONS[4].link ? router.push(ACCOMMODATIONS[4].link) : setSelectedStay(ACCOMMODATIONS[4])}
                   className="flex flex-row h-[40vh] items-center"
                   imageClass="w-1/2 h-full"
                   contentClass="w-1/2 p-10"
