@@ -16,39 +16,41 @@ const ACCOMMODATIONS = [
     features: ["Private Veranda", "Antique Furnishings", "Panoramic Views", "Premium Bath Amenities"],
     capacity: "Up to 4 Guests",
     size: "850 sq ft",
-    image: "/IMAGES/COTTAGE 1/COTTAGE FRONT.jpeg",
+    image: "/IMAGES/cover/Heritage Cottage Villa COVER.JPEG",
     link: "/heritage-cottage"
   },
   {
     id: "stay-02",
-    title: "Private Glass Room",
-    tagline: "Wake to Misty Mornings & Panoramic Hill Views",
-    description: "Immersive nature living with 360-degree views.",
-    features: ["360° Glass Walls", "Stargazing Roof", "Climate Control", "Private Garden"],
-    capacity: "2 Guests",
+    title: "The Glass room",
+    tagline: "Intimate luxury for couples and solo travellers",
+    description: "Refined comfort designed for couples and solo travellers seeking a private, intimate escape in a glass room with 360° views of the farm and the majestic Banasura mountains.",
+    features: ["King size bed with Attached Bathroom", "Private balcony", "360 degree view", "Misty Morning Views", "Peaceful Farm Surroundings"],
+    capacity: "Upto 3 guests",
     size: "450 sq ft",
-    image: "/private%20glass%20room/cover%20photo.JPEG",
+    image: "/IMAGES/cottages/glass-room/room with view wayanad (1).jpg",
     link: "/private-glass-room"
   },
   {
     id: "stay-03",
     title: "The Block",
-    tagline: "Designed for togetherness and lasting memories.",
+    tagline: "Wake to Misty Mornings & Panoramic Hill Views",
     description: "The Block is designed for togetherness. Whether it's a family getaway, a weekend with friends, or an office retreat, its four private rooms and open common space create the perfect setting to connect, unwind, and make lasting memories against the backdrop of the Banasura hills.",
     features: ["4 Spacious Bedrooms with Attached Bathrooms", "Open Dining space with panoramic view", "Spacious Private balconies", "Misty Morning Views", "Peaceful Farm Surroundings"],
-    capacity: "Up to 6 Guests",
+    capacity: "Upto 6 guest",
     size: "1500 sq ft",
-    image: "/IMAGES/COTTAGE 1/ROOM4.jpeg"
+    image: "/IMAGES/cottages/the-block/famstay in wayanad (1).jpg",
+    link: "/the-block"
   },
   {
     id: "stay-04",
-    title: "Premium Private Rooms",
-    tagline: "Intimate luxury for couples and solo travelers.",
-    description: "Thoughtfully designed spaces that maximize comfort and intimacy. Featuring plush bedding, modern amenities, and beautiful forest-facing windows.",
-    features: ["Forest Views", "Plush Bedding", "Smart TV", "Work Desk"],
-    capacity: "2 Guests",
+    title: "Ginger - The pool side room",
+    tagline: "Start your day with the water at your doorstep.",
+    description: "A private standalone room right next to the farm pool with an attached bathroom for complete comfort and privacy.",
+    features: ["King size bed Bedrooms with Attached Bathroom", "Private porch", "Misty Morning Views", "Peaceful Farm Surroundings"],
+    capacity: "Upto 3 guests",
     size: "350 sq ft",
-    image: "/IMAGES/COTTAGE 1/POOL.jpeg"
+    image: "/IMAGES/cottages/ginger/pool side room (1).jpg",
+    link: "/ginger-poolside"
   },
   {
     id: "stay-05",

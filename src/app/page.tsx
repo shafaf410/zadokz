@@ -7,6 +7,7 @@ import ExperiencesSection from "@/components/ExperiencesSection";
 import GallerySection from "@/components/GallerySection";
 import NearbySection from "@/components/NearbySection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import FeedbackSection from "@/components/FeedbackSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -29,6 +30,7 @@ export default function Home() {
           <StaySection />
           <ExperiencesSection />
           <TestimonialsSection />
+          <FeedbackSection />
           <Footer />
         </div>
       </div>

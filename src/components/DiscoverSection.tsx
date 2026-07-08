@@ -94,10 +94,10 @@ export default function DiscoverSection() {
 
               <motion.div variants={textVariants}>
                 <button 
-                  onClick={() => document.getElementById('discover')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => document.getElementById('stay')?.scrollIntoView({ behavior: 'smooth' })}
                   className="relative overflow-hidden group px-8 py-4 border border-forest/30 text-forest rounded-full text-sm tracking-widest uppercase hover:text-cream transition-colors duration-500"
                 >
-                  <span className="relative z-10">Our Story</span>
+                  <span className="relative z-10">Book Now</span>
                   <div className="absolute inset-0 bg-forest transform scale-x-0 origin-left transition-transform duration-500 ease-[0.16,1,0.3,1] group-hover:scale-x-100" />
                 </button>
               </motion.div>

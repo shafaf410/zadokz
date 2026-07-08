@@ -60,7 +60,7 @@ export default function Navbar() {
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <img src="/logo.png" alt="Zadokz Logo" className={`w-auto object-contain transition-all duration-500 ${isScrolled ? 'h-10' : 'h-14'}`} />
+            {/* <img src="/logo.png" alt="Zadokz Logo" className={`w-auto object-contain transition-all duration-500 ${isScrolled ? 'h-10' : 'h-14'}`} /> */}
             <div className="flex flex-col">
               <span className={`tracking-[0.2em] font-light uppercase leading-none transition-all duration-500 text-forest ${isScrolled ? 'text-xl' : 'text-2xl'}`}>Zadokz</span>
               <span className={`tracking-[0.4em] font-bold uppercase mt-1 pl-1 transition-all duration-500 text-forest/80 ${isScrolled ? 'text-[10px]' : 'text-xs'}`}>Farms</span>
