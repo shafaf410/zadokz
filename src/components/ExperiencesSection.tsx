@@ -58,9 +58,9 @@ const experiences = [
   },
   {
     id: "06",
-    title: "Vegie Garden",
+    title: "Vegetable Garden",
     images: [
-      "/IMAGES/vegie_garden.png"
+      "/IMAGES/vegi-garden.jpg"
     ],
     color: "#3d5a35", // Earthy green
     featured: false
@@ -69,7 +69,7 @@ const experiences = [
     id: "07",
     title: "Board Games",
     images: [
-      "/IMAGES/carrom_board.png"
+      "/IMAGES/carroms.jpeg"
     ],
     color: "#6b4423", // Wood brown
     featured: false
