@@ -3,9 +3,9 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Fraunces, Karla, IBM_Plex_Mono } from "next/font/google";
-import { BedDouble, Bath, Coffee, Sun, TreePine, ArrowUpRight, Menu, X, MapPin, Phone, Mail, Users } from "lucide-react";
+import { BedDouble, Bath, Waves, Sun, TreePine, ArrowUpRight, MapPin, Phone, Mail, Users } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
 // Font configurations
@@ -31,7 +31,6 @@ const plexMono = IBM_Plex_Mono({
 
 export default function GingerPoolsidePage() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   const { scrollYProgress } = useScroll();
   const mistOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
@@ -48,13 +47,12 @@ export default function GingerPoolsidePage() {
   }, []);
 
   const highlights = [
-    { icon: <BedDouble size={20} strokeWidth={1.5} />, title: "King size bed", desc: "Premium bedding for a restful sleep." },
-    { icon: <Bath size={20} strokeWidth={1.5} />, title: "Attached Bathroom", desc: "Complete comfort and privacy." },
-    { icon: <Coffee size={20} strokeWidth={1.5} />, title: "Private porch", desc: "Start your day with the water at your doorstep." },
-    { icon: <Sun size={20} strokeWidth={1.5} />, title: "Misty Morning Views", desc: "Wake up to breathtaking misty mornings." },
-    { icon: <TreePine size={20} strokeWidth={1.5} />, title: "Peaceful Farm Surroundings", desc: "Immerse yourself in nature." },
+    { icon: <BedDouble size={20} strokeWidth={1.5} />, title: "1 Spacious Bedroom", desc: "Cozy furnishings, premium bedding." },
+    { icon: <Bath size={20} strokeWidth={1.5} />, title: "Attached Bathroom", desc: "Modern amenities, hot water." },
+    { icon: <Waves size={20} strokeWidth={1.5} />, title: "Direct Pool Access", desc: "Step out right by the water." },
+    { icon: <Sun size={20} strokeWidth={1.5} />, title: "Standalone Privacy", desc: "A secluded retreat just for you." },
+    { icon: <TreePine size={20} strokeWidth={1.5} />, title: "Peaceful Farm Surroundings", desc: "Surrounded by a lush green farm." },
   ];
-
 
   return (
     <div className={`heritage-theme ${fraunces.variable} ${karla.variable} ${plexMono.variable} min-h-screen bg-[var(--ivory)] text-[var(--forest)] font-body selection:bg-[var(--forest)] selection:text-[var(--ivory)] overflow-x-hidden`}>
@@ -111,7 +109,7 @@ export default function GingerPoolsidePage() {
       {/* 2. Hero */}
       <section className="relative w-full h-[70vh] bg-neutral-900 overflow-hidden">
         <Image 
-          src="/IMAGES/cover/ginger cover.jpeg"
+          src="/GALLERY1/zadokz farmstay wayanad (12).jpg"
           alt="Ginger - The pool side room"
           fill
           priority
@@ -127,23 +125,23 @@ export default function GingerPoolsidePage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 pointer-events-none" />
 
         <div className="absolute inset-0 z-20 flex flex-col justify-end base-spacing pb-12 md:pb-16 pointer-events-none">
-          <span className="font-mono text-xs md:text-xs tracking-[0.08em] uppercase text-white/80 mb-4 drop-shadow-md">Start your day with the water at your doorstep.</span>
+          <span className="font-mono text-xs md:text-xs tracking-[0.08em] uppercase text-white/80 mb-4 drop-shadow-md">Start your day with the water at your doorstep</span>
           <h1 className="font-display text-5xl md:text-6xl lg:text-[5rem] text-[var(--ivory)] leading-[1.05] tracking-tight mb-6 drop-shadow-lg max-w-4xl">
-            Ginger - The pool side room
+            Ginger - Pool Side Room
           </h1>
           
           <div className="flex items-center space-x-3 font-mono text-[11px] tracking-[0.08em] uppercase text-[var(--ivory)]/80">
             <Users size={14} />
-            <span>Upto 3 guests</span>
+            <span>Up to 3 guests</span>
             <span className="opacity-50">·</span>
-            <span>Standalone Room</span>
+            <span>1 BHK</span>
           </div>
         </div>
       </section>
 
       {/* 3. Gallery Grid */}
       <section className="py-16 md:py-24 base-spacing bg-[var(--ivory)]">
-        <h2 className="font-display text-3xl md:text-4xl text-[var(--forest)] mb-10">Glimpses of the Cottage</h2>
+        <h2 className="font-display text-3xl md:text-4xl text-[var(--forest)] mb-10">Glimpses of the Room</h2>
         
         {/* Mobile: Simple stack or horizontal scroll, Desktop: Airbnb style grid */}
         <div className="flex overflow-x-auto md:grid md:grid-cols-4 md:grid-rows-2 gap-4 h-[400px] md:h-[60vh] min-h-[400px] snap-x snap-mandatory hide-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
@@ -151,8 +149,8 @@ export default function GingerPoolsidePage() {
           {/* Main Large Image */}
           <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-2 md:row-span-2 relative rounded-2xl md:rounded-r-none md:rounded-l-2xl overflow-hidden group">
             <Image 
-              src="/IMAGES/cover/ginger cover.jpeg" 
-              alt="Ginger - The pool side room" 
+              src="/IMAGES/cottages/ginger/pool side room (1).jpg" 
+              alt="Ginger poolside room view" 
               fill 
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
             />
@@ -161,8 +159,8 @@ export default function GingerPoolsidePage() {
           {/* Top Right Image */}
           <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-2 md:row-span-1 relative rounded-2xl md:rounded-none md:rounded-tr-2xl overflow-hidden group">
             <Image 
-              src="/IMAGES/heritage-cottage/1.jpeg" 
-              alt="Where the family gathers" 
+              src="/IMAGES/cottages/ginger/pool side room (2).jpg" 
+              alt="Pool side room interior" 
               fill 
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
             />
@@ -171,21 +169,16 @@ export default function GingerPoolsidePage() {
           {/* Bottom Right - Left Image */}
           <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-1 md:row-span-1 relative rounded-2xl md:rounded-none overflow-hidden group">
             <Image 
-              src="/IMAGES/heritage-cottage/2.jpeg" 
-              alt="Teak & heritage furniture" 
+              src="/IMAGES/cottages/ginger/pool side room (3).jpg" 
+              alt="Pool side view" 
               fill 
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
             />
           </div>
           
           {/* Bottom Right - Right Image */}
-          <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-1 md:row-span-1 relative rounded-2xl md:rounded-none md:rounded-br-2xl overflow-hidden group">
-            <Image 
-              src="/IMAGES/heritage-cottage/3.jpeg" 
-              alt="Misty morning views" 
-              fill 
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
-            />
+          <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-1 md:row-span-1 relative rounded-2xl md:rounded-none md:rounded-br-2xl overflow-hidden group bg-[var(--forest)] flex items-center justify-center">
+            <p className="font-mono text-sm tracking-widest uppercase text-[var(--ivory)] text-center p-4">Explore More</p>
           </div>
           
         </div>
@@ -197,11 +190,11 @@ export default function GingerPoolsidePage() {
           
           {/* Left Column - About */}
           <div className="flex-1 lg:max-w-[55%]">
-            <h2 className="font-display text-3xl md:text-4xl text-[var(--forest)] mb-4">About the Cottage</h2>
+            <h2 className="font-display text-3xl md:text-4xl text-[var(--forest)] mb-4">About the Room</h2>
             <div className="w-12 h-[2px] bg-[var(--terracotta)] mb-8" />
             
             <p className="font-body text-lg md:text-xl leading-[1.7] text-[var(--forest)]/90 mb-8">
-              A private standalone room right next to the farm pool with an attached bathroom for complete comfort and privacy.
+              A private standalone room right next to the farm pool with an attached bathroom for complete comfort and privacy. Start your day with the water at your doorstep.
             </p>
             
             <ul className="flex flex-col space-y-0">
@@ -229,17 +222,17 @@ export default function GingerPoolsidePage() {
               
               <h3 className="font-display text-3xl md:text-4xl mb-2 mt-2">Book Your Stay</h3>
               <p className="font-body text-[var(--sage-muted)] text-base mb-10 pb-8 border-b border-[var(--ivory)]/15">
-                Contact us to check availability for the Ginger - The pool side room.
+                Contact us to check availability for the Ginger - Pool Side Room.
               </p>
               
               <div className="flex justify-between items-center mb-6 pb-6 border-b border-[var(--ivory)]/15">
                 <span className="font-mono text-[11px] tracking-[0.08em] uppercase text-[var(--sage-muted)]">Capacity</span>
-                <span className="font-body text-[var(--ivory)]">Upto 3 guests</span>
+                <span className="font-body text-[var(--ivory)]">Up to 3 guests</span>
               </div>
               
               <div className="flex justify-between items-center mb-10 pb-6 border-b border-[var(--ivory)]/15">
                 <span className="font-mono text-[11px] tracking-[0.08em] uppercase text-[var(--sage-muted)]">Bedrooms</span>
-                <span className="font-body text-[var(--ivory)]">Standalone Room</span>
+                <span className="font-body text-[var(--ivory)]">1 BHK</span>
               </div>
 
               <Link 
@@ -314,13 +307,13 @@ export default function GingerPoolsidePage() {
             <div>
               <h4 className="font-mono text-[11px] tracking-[0.08em] uppercase text-[var(--sage-muted)] mb-6">Get in Touch</h4>
               <div className="flex flex-col space-y-4 font-body mb-8">
-                <a href="tel:+918078000000" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
+                <a href="tel:+919605575281" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
                   <Phone size={16} className="text-[var(--sage-muted)]" />
-                  <span>+91 80780 00000</span>
+                  <span>+91 96055 75281</span>
                 </a>
-                <a href="mailto:hello@zadokz.com" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
+                <a href="mailto:zadokzfarmstay@gmail.com" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
                   <Mail size={16} className="text-[var(--sage-muted)]" />
-                  <span>hello@zadokz.com</span>
+                  <span>zadokzfarmstay@gmail.com</span>
                 </a>
               </div>
               

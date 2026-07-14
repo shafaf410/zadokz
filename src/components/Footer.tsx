@@ -11,10 +11,10 @@ export default function Footer() {
           <div className="space-y-6">
             <h3 className="text-sm tracking-widest uppercase text-forest font-semibold">Explore</h3>
             <ul className="space-y-4">
-              <li><Link href="#stay" className="text-cream/70 hover:text-cream transition-colors">The Stay</Link></li>
-              <li><Link href="#experiences" className="text-cream/70 hover:text-cream transition-colors">Experiences</Link></li>
-              <li><Link href="#gallery" className="text-cream/70 hover:text-cream transition-colors">Gallery</Link></li>
-              <li><Link href="#nearby" className="text-cream/70 hover:text-cream transition-colors">Nearby Adventures</Link></li>
+              <li><Link href="/#stay" className="text-cream/70 hover:text-cream transition-colors">The Stay</Link></li>
+              <li><Link href="/experiences" className="text-cream/70 hover:text-cream transition-colors">Experiences</Link></li>
+              <li><Link href="/gallery" className="text-cream/70 hover:text-cream transition-colors">Gallery</Link></li>
+              <li><Link href="/nearby" className="text-cream/70 hover:text-cream transition-colors">Nearby Adventures</Link></li>
             </ul>
           </div>
 
@@ -50,11 +50,11 @@ export default function Footer() {
               <ul className="space-y-4">
                 <li className="flex items-center space-x-3 text-cream/70">
                   <Phone size={20} />
-                  <span>+91 98765 43210</span>
+                  <span>+91 96055 75281</span>
                 </li>
                 <li className="flex items-center space-x-3 text-cream/70">
                   <Mail size={20} />
-                  <span>escape@zadokz.com</span>
+                  <span>zadokzfarmstay@gmail.com</span>
                 </li>
               </ul>
               

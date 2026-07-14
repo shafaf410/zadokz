@@ -2,6 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
+import { RippleTransition } from "@/components/ui/ripple-transition";
 
 export default function DiscoverSection() {
   const textVariants: Variants = {
@@ -14,49 +15,65 @@ export default function DiscoverSection() {
   };
 
   return (
-    <section id="discover" className="pt-32 pb-12 md:pt-48 md:pb-16 text-charcoal relative z-10">
+    <section id="discover" className="pt-16 pb-4 md:pt-20 md:pb-8 text-charcoal relative z-10 flex flex-col justify-center">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-start relative">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-16 items-start relative pt-4">
           
           {/* Left Side: Images */}
-          <div className="md:col-span-6 relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center md:sticky md:top-40 mb-10 md:mb-0">
+          <div className="md:col-span-5 relative h-[50vh] md:h-[65vh] w-full mb-6 md:mb-0">
             {/* Primary Large Image */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              className="absolute left-0 w-[80%] h-[80%] md:h-full rounded-[32px] overflow-hidden shadow-2xl z-10"
+              className="w-full h-full rounded-[32px] overflow-hidden shadow-2xl z-10"
               style={{ willChange: "transform, opacity" }}
             >
-              <Image 
-                src="/IMAGES/COTTAGE 1/WhatsApp Image 2026-06-22 at 5.10.21 PM.jpeg" // Using actual image path
-                alt="Nature surrounds Zadokz Farm Stay"
-                fill
-                className="object-cover"
-              />
-            </motion.div>
-
-            {/* Secondary Floating Image */}
-            <motion.div 
-              initial={{ opacity: 0, x: 50, y: 50 }}
-              whileInView={{ opacity: 1, x: 0, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute right-0 bottom-10 w-[50%] md:w-[60%] aspect-[3/4] rounded-[24px] overflow-hidden shadow-2xl z-20 border-4 border-cream"
-              style={{ willChange: "transform, opacity" }}
-            >
-              <Image 
-                src="/IMAGES/COTTAGE 1/STAIR WAY.jpeg" // Using actual image path
-                alt="Architecture detail"
-                fill
-                className="object-cover"
+              <RippleTransition 
+                images={[
+                  "/GALLERY1/zadokz farmstay wayanad (1).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (2).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (3).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (4).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (5).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (6).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (7).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (8).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (9).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (10).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (11).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (12).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (13).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (14).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (15).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (16).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (17).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (18).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (19).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (20).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (21).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (22).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (23).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (24).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (25).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (26).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (27).jpg",
+                  "/GALLERY1/zadokz farmstay wayanad (28).jpg"
+                ]}
+                className="h-full w-full object-cover"
+                autoPlay
+                autoPlayInterval={4000}
+                autoPlayOrigin="random"
+                duration={1.5}
+                pinch
+                borderRadius={32}
               />
             </motion.div>
           </div>
 
           {/* Right Side: Content */}
-          <div className="md:col-span-5 md:col-start-8 flex flex-col justify-center">
+          <div className="md:col-span-6 md:col-start-7 flex flex-col justify-start">
             <motion.div 
               initial="hidden"
               whileInView="visible"
@@ -69,32 +86,24 @@ export default function DiscoverSection() {
               </motion.div>
 
               <motion.h2 variants={textVariants} className="text-4xl md:text-5xl lg:text-6xl font-light text-forest leading-[1.1] mb-8 text-balance">
-                Where Our Story <br className="hidden md:block" /> Became a Stay
+                Where Our Story Became a Stay
               </motion.h2>
 
-              <motion.p variants={textVariants} className="text-charcoal/70 text-base md:text-lg leading-relaxed mb-5 font-light">
-                Zadokz began as our family’s weekend home, a quiet escape where we would gather, slow down, and enjoy the simple beauty of nature. Surrounded by greenery and open skies, it was a place filled with laughter, shared meals, and peaceful moments away from busy city life.
-              </motion.p>
-              
-              <motion.p variants={textVariants} className="text-charcoal/70 text-base md:text-lg leading-relaxed mb-5 font-light">
-                Over time, what started as a private retreat naturally evolved. Friends and extended family who visited often felt the same sense of calm and connection, and soon we opened our doors to welcome guests who were looking for a similar experience.
+              <motion.p variants={textVariants} className="text-charcoal/70 text-base md:text-lg leading-relaxed mb-4 font-light">
+                Zadokz began as our family's weekend home &mdash; a quiet escape to slow down, gather, and enjoy nature away from city life. Over time, friends and family who visited felt the same calm, and we began welcoming guests seeking that experience too. Today, Zadokz Farmstay is a warm countryside retreat for families, couples, and weekend travellers.
               </motion.p>
 
-              <motion.p variants={textVariants} className="text-charcoal/70 text-base md:text-lg leading-relaxed mb-5 font-light">
-                Today, Zadokz Farmstay is a warm countryside escape designed for families, couples, and weekend travellers from Bangalore and nearby cities. While the setting has grown to host more people, the essence remains the same comfort, nature, and a homely atmosphere.
+              <motion.p variants={textVariants} className="text-charcoal/70 text-base md:text-lg leading-relaxed mb-6 font-light">
+                The setting has grown, but the essence hasn't &mdash; comfort, nature, and a homely feel. We believe in simple living, genuine hospitality, and giving guests space to reconnect and make memories.
               </motion.p>
 
-              <motion.p variants={textVariants} className="text-charcoal/70 text-base md:text-lg leading-relaxed mb-5 font-light">
-                We believe in simple living, genuine hospitality, and creating a space where guests can slow down, reconnect, and make meaningful memories. Every stay here is an invitation to experience the peace that first made this place special to us.
-              </motion.p>
-
-              <motion.p variants={textVariants} className="text-charcoal/80 text-lg leading-relaxed mb-10 font-medium italic">
-                We look forward to welcoming you into our story.
+              <motion.p variants={textVariants} className="text-charcoal/80 text-lg md:text-xl leading-relaxed mb-8 font-medium italic">
+                Every stay is an invitation to experience the peace that made this place special to us. We look forward to welcoming you into our story.
               </motion.p>
 
               <motion.div variants={textVariants}>
                 <button 
-                  onClick={() => document.getElementById('stay')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => window.open(`https://wa.me/919605575281?text=${encodeURIComponent("Hello, I'd like to book a stay at Zadokz Farm Stay!")}`, '_blank')}
                   className="relative overflow-hidden group px-8 py-4 border border-forest/30 text-forest rounded-full text-sm tracking-widest uppercase hover:text-cream transition-colors duration-500"
                 >
                   <span className="relative z-10">Book Now</span>

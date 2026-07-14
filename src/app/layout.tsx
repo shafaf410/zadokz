@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import AudioPlayer from "@/components/AudioPlayer";
+import AppWrapper from "@/components/AppWrapper";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "Zadokz Farm Stay | Luxury Forest Retreat",
@@ -16,10 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased dark">
       <body className="min-h-full flex flex-col bg-charcoal text-cream font-sans overflow-x-hidden selection:bg-forest selection:text-cream">
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
+        <AppWrapper>
+          <SmoothScroll>
+            {children}
+          </SmoothScroll>
+        </AppWrapper>
         <AudioPlayer />
+        <WhatsAppButton />
       </body>
     </html>
   );

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { X, ArrowUpRight, Maximize2, Users, Scaling, Bath } from "lucide-react";
 
@@ -21,17 +22,6 @@ const ACCOMMODATIONS = [
   },
   {
     id: "stay-02",
-    title: "The Glass room",
-    tagline: "Intimate luxury for couples and solo travellers",
-    description: "Refined comfort designed for couples and solo travellers seeking a private, intimate escape in a glass room with 360° views of the farm and the majestic Banasura mountains.",
-    features: ["King size bed with Attached Bathroom", "Private balcony", "360 degree view", "Misty Morning Views", "Peaceful Farm Surroundings"],
-    capacity: "Upto 3 guests",
-    size: "450 sq ft",
-    image: "/IMAGES/cottages/glass-room/room with view wayanad (1).jpg",
-    link: "/private-glass-room"
-  },
-  {
-    id: "stay-03",
     title: "The Block",
     tagline: "Wake to Misty Mornings & Panoramic Hill Views",
     description: "The Block is designed for togetherness. Whether it's a family getaway, a weekend with friends, or an office retreat, its four private rooms and open common space create the perfect setting to connect, unwind, and make lasting memories against the backdrop of the Banasura hills.",
@@ -40,6 +30,17 @@ const ACCOMMODATIONS = [
     size: "1500 sq ft",
     image: "/IMAGES/cottages/the-block/famstay in wayanad (1).jpg",
     link: "/the-block"
+  },
+  {
+    id: "stay-03",
+    title: "The Glass room",
+    tagline: "Intimate luxury for couples and solo travellers",
+    description: "Refined comfort designed for couples and solo travellers seeking a private, intimate escape in a glass room with 360° views of the farm and the majestic Banasura mountains.",
+    features: ["King size bed with Attached Bathroom", "Private balcony", "360 degree view", "Misty Morning Views", "Peaceful Farm Surroundings"],
+    capacity: "Upto 3 guests",
+    size: "450 sq ft",
+    image: "/IMAGES/cottages/glass-room/room with view wayanad (1).jpg",
+    link: "/private-glass-room"
   },
   {
     id: "stay-04",
@@ -85,7 +86,7 @@ export default function StaySection() {
   }
 
   return (
-    <section id="stay" className="relative w-full overflow-hidden pt-16 pb-32 md:pt-24 md:pb-48 text-charcoal">
+    <section id="stay" className="relative w-full overflow-hidden pt-4 pb-32 md:pt-8 md:pb-48 text-charcoal">
       
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center opacity-30">
@@ -123,15 +124,7 @@ export default function StaySection() {
             Find Your Perfect <br className="hidden md:block" /> Retreat
           </motion.h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="text-charcoal/70 max-w-2xl text-lg font-light leading-relaxed"
-          >
-            Whether you're seeking a peaceful escape surrounded by nature, a family getaway, or a unique stay experience, every accommodation at Zadokz is thoughtfully designed to offer comfort, privacy, and unforgettable moments.
-          </motion.p>
+
         </div>
 
         {/* ========================================== */}
@@ -156,23 +149,23 @@ export default function StaySection() {
           </motion.div>
 
           {/* Two-Column Portrait Accommodations */}
-          <div className="grid grid-cols-2 gap-10">
-            <motion.div variants={cardVariants} style={{ willChange: "transform, opacity" }}>
+          <div className="grid grid-cols-2 gap-10 items-stretch">
+            <motion.div variants={cardVariants} style={{ willChange: "transform, opacity" }} className="h-full">
                <StayCard 
                   stay={ACCOMMODATIONS[1]} 
                   onClick={() => ACCOMMODATIONS[1].link ? router.push(ACCOMMODATIONS[1].link) : setSelectedStay(ACCOMMODATIONS[1])}
-                  className="flex flex-col h-[85vh]"
-                  imageClass="h-2/3"
-                  contentClass="h-1/3 p-10 flex flex-col justify-between"
+                  className="flex flex-col h-full min-h-[85vh]"
+                  imageClass="flex-1 min-h-[40vh]"
+                  contentClass="h-auto p-8 lg:p-10 flex flex-col justify-between shrink-0"
                />
             </motion.div>
-            <motion.div variants={cardVariants} style={{ willChange: "transform, opacity" }}>
+            <motion.div variants={cardVariants} style={{ willChange: "transform, opacity" }} className="h-full">
                <StayCard 
                   stay={ACCOMMODATIONS[2]} 
                   onClick={() => ACCOMMODATIONS[2].link ? router.push(ACCOMMODATIONS[2].link) : setSelectedStay(ACCOMMODATIONS[2])}
-                  className="flex flex-col h-[85vh]"
-                  imageClass="h-2/3"
-                  contentClass="h-1/3 p-10 flex flex-col justify-between"
+                  className="flex flex-col h-full min-h-[85vh]"
+                  imageClass="flex-1 min-h-[40vh]"
+                  contentClass="h-auto p-8 lg:p-10 flex flex-col justify-between shrink-0"
                />
             </motion.div>
           </div>
@@ -212,14 +205,14 @@ export default function StaySection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="w-[85vw] max-w-[340px] sm:w-[60vw] snap-center shrink-0"
+                className="w-[85vw] max-w-[340px] sm:w-[60vw] snap-center shrink-0 flex"
               >
                 <StayCard 
                   stay={stay} 
                   onClick={() => stay.link ? router.push(stay.link) : setSelectedStay(stay)}
-                  className="flex flex-col h-auto aspect-[4/5] sm:aspect-[3/4]"
-                  imageClass="h-[60%]"
-                  contentClass="h-[40%] p-6 flex flex-col justify-between"
+                  className="flex flex-col w-full h-auto min-h-[420px]"
+                  imageClass="h-[240px] shrink-0"
+                  contentClass="p-6 flex flex-col flex-1 justify-between gap-2"
                 />
               </motion.div>
             ))}
@@ -335,9 +328,9 @@ interface StayCardProps {
 }
 
 function StayCard({ stay, onClick, className = "", imageClass = "", contentClass = "" }: StayCardProps) {
-  return (
+  const content = (
     <div 
-      onClick={onClick}
+      onClick={!stay.link ? onClick : undefined}
       className={`group bg-white rounded-[32px] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-2 ${className}`}
     >
       <div className={`relative overflow-hidden ${imageClass}`}>
@@ -370,4 +363,10 @@ function StayCard({ stay, onClick, className = "", imageClass = "", contentClass
       </div>
     </div>
   );
+
+  return stay.link ? (
+    <Link href={stay.link} className="block h-full">
+      {content}
+    </Link>
+  ) : content;
 }

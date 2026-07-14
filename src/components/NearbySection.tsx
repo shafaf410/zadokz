@@ -112,6 +112,7 @@ export default function NearbySection() {
         </div>
 
         {/* Desktop Alternating Layout */}
+        {/* Desktop Alternating Layout */}
         <div className="hidden lg:flex flex-col space-y-32 mt-12">
           {ATTRACTIONS.map((attraction, index) => {
             const isEven = index % 2 === 0;

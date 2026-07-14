@@ -3,9 +3,9 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Fraunces, Karla, IBM_Plex_Mono } from "next/font/google";
-import { CloudSun, ArrowUpRight, MapPin, Phone, Mail, Users, ChevronLeft, ChevronRight, BedDouble, Utensils, Home } from "lucide-react";
+import { BedDouble, Bath, Coffee, Sun, TreePine, ArrowUpRight, Menu, X, MapPin, Phone, Mail, Users, Mountain } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
 // Font configurations
@@ -30,19 +30,30 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export default function TheBlockPage() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  
   const { scrollYProgress } = useScroll();
   const mistOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const highlights = [
-    { icon: <BedDouble size={20} strokeWidth={1.5} />, title: "4 Spacious Bedrooms", desc: "Private rooms with attached bathrooms for everyone." },
-    { icon: <Utensils size={20} strokeWidth={1.5} />, title: "Open Dining Space", desc: "Enjoy meals together with a panoramic view of the hills." },
-    { icon: <Home size={20} strokeWidth={1.5} />, title: "Spacious Balconies", desc: "Private balconies to relax and soak in the fresh air." },
-    { icon: <CloudSun size={20} strokeWidth={1.5} />, title: "Misty Morning Views", desc: "Wake up to breathtaking misty mornings." },
+    { icon: <BedDouble size={20} strokeWidth={1.5} />, title: "4 Spacious Bedrooms", desc: "Perfect for family and groups, with premium bedding." },
+    { icon: <Bath size={20} strokeWidth={1.5} />, title: "Attached Bathrooms", desc: "Modern amenities, hot water in every room." },
+    { icon: <Coffee size={20} strokeWidth={1.5} />, title: "Open Dining Space", desc: "Shared dining area with panoramic views." },
+    { icon: <Mountain size={20} strokeWidth={1.5} />, title: "Spacious Private Balconies", desc: "Wake up to misty morning hill views." },
+    { icon: <TreePine size={20} strokeWidth={1.5} />, title: "Peaceful Farm Surroundings", desc: "Immerse yourself in nature." },
   ];
+
 
   return (
     <div className={`heritage-theme ${fraunces.variable} ${karla.variable} ${plexMono.variable} min-h-screen bg-[var(--ivory)] text-[var(--forest)] font-body selection:bg-[var(--forest)] selection:text-[var(--ivory)] overflow-x-hidden`}>
@@ -99,8 +110,8 @@ export default function TheBlockPage() {
       {/* 2. Hero */}
       <section className="relative w-full h-[70vh] bg-neutral-900 overflow-hidden">
         <Image 
-          src="/IMAGES/cottages/the-block/famstay in wayanad (3).jpg"
-          alt="The Block with scenic views"
+          src="/IMAGES/cover/the block cover.JPEG"
+          alt="The Block farmstay exterior"
           fill
           priority
           className="object-cover"
@@ -122,7 +133,7 @@ export default function TheBlockPage() {
           
           <div className="flex items-center space-x-3 font-mono text-[11px] tracking-[0.08em] uppercase text-[var(--ivory)]/80">
             <Users size={14} />
-            <span>Up to 6 guests</span>
+            <span>Up to 12 guests</span>
             <span className="opacity-50">·</span>
             <span>4 Bedrooms</span>
           </div>
@@ -139,8 +150,8 @@ export default function TheBlockPage() {
           {/* Main Large Image */}
           <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-2 md:row-span-2 relative rounded-2xl md:rounded-r-none md:rounded-l-2xl overflow-hidden group">
             <Image 
-              src="/IMAGES/cottages/the-block/famstay in wayanad (5).jpg" 
-              alt="Spacious living areas" 
+              src="/IMAGES/cottages/the-block/famstay in wayanad (1).jpg" 
+              alt="Exterior View" 
               fill 
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
             />
@@ -149,8 +160,8 @@ export default function TheBlockPage() {
           {/* Top Right Image */}
           <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-2 md:row-span-1 relative rounded-2xl md:rounded-none md:rounded-tr-2xl overflow-hidden group">
             <Image 
-              src="/IMAGES/cottages/the-block/famstay in wayanad (1).jpg" 
-              alt="Comfortable bedrooms" 
+              src="/IMAGES/cottages/the-block/famstay in wayanad (2).jpg" 
+              alt="Where the family gathers" 
               fill 
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
             />
@@ -159,8 +170,8 @@ export default function TheBlockPage() {
           {/* Bottom Right - Left Image */}
           <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-1 md:row-span-1 relative rounded-2xl md:rounded-none overflow-hidden group">
             <Image 
-              src="/IMAGES/cottages/the-block/famstay in wayanad (2).jpg" 
-              alt="Room details" 
+              src="/IMAGES/cottages/the-block/famstay in wayanad (3).jpg" 
+              alt="Comfortable Room" 
               fill 
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
             />
@@ -170,7 +181,7 @@ export default function TheBlockPage() {
           <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-1 md:row-span-1 relative rounded-2xl md:rounded-none md:rounded-br-2xl overflow-hidden group">
             <Image 
               src="/IMAGES/cottages/the-block/famstay in wayanad (4).jpg" 
-              alt="Private balconies" 
+              alt="Balcony View" 
               fill 
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
             />
@@ -222,12 +233,12 @@ export default function TheBlockPage() {
               
               <div className="flex justify-between items-center mb-6 pb-6 border-b border-[var(--ivory)]/15">
                 <span className="font-mono text-[11px] tracking-[0.08em] uppercase text-[var(--sage-muted)]">Capacity</span>
-                <span className="font-body text-[var(--ivory)]">Up to 6 guests</span>
+                <span className="font-body text-[var(--ivory)]">Up to 12 guests</span>
               </div>
               
               <div className="flex justify-between items-center mb-10 pb-6 border-b border-[var(--ivory)]/15">
-                <span className="font-mono text-[11px] tracking-[0.08em] uppercase text-[var(--sage-muted)]">Rooms</span>
-                <span className="font-body text-[var(--ivory)]">4 Bedrooms</span>
+                <span className="font-mono text-[11px] tracking-[0.08em] uppercase text-[var(--sage-muted)]">Bedrooms</span>
+                <span className="font-body text-[var(--ivory)]">4 Rooms</span>
               </div>
 
               <Link 
@@ -302,13 +313,13 @@ export default function TheBlockPage() {
             <div>
               <h4 className="font-mono text-[11px] tracking-[0.08em] uppercase text-[var(--sage-muted)] mb-6">Get in Touch</h4>
               <div className="flex flex-col space-y-4 font-body mb-8">
-                <a href="tel:+918078000000" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
+                <a href="tel:+919605575281" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
                   <Phone size={16} className="text-[var(--sage-muted)]" />
-                  <span>+91 80780 00000</span>
+                  <span>+91 96055 75281</span>
                 </a>
-                <a href="mailto:hello@zadokz.com" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
+                <a href="mailto:zadokzfarmstay@gmail.com" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
                   <Mail size={16} className="text-[var(--sage-muted)]" />
-                  <span>hello@zadokz.com</span>
+                  <span>zadokzfarmstay@gmail.com</span>
                 </a>
               </div>
               

@@ -13,7 +13,7 @@ export default function Navbar() {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string, path?: string) => {
     // If it's a completely different page path, let Next.js Link handle the navigation natively
-    if (path === '/gallery' || path === '/nearby') {
+    if (path === '/experiences' || path === '/gallery' || path === '/nearby') {
       setIsMobileMenuOpen(false);
       return;
     }
@@ -60,8 +60,12 @@ export default function Navbar() {
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            {/* <img src="/logo.png" alt="Zadokz Logo" className={`w-auto object-contain transition-all duration-500 ${isScrolled ? 'h-10' : 'h-14'}`} /> */}
-            <div className="flex flex-col">
+            <img 
+              src="/icon%20of%20logo.jpeg" 
+              alt="Zadokz Logo Icon" 
+              className={`w-auto object-contain rounded-full transition-all duration-500 mix-blend-multiply ${isScrolled ? 'h-8' : 'h-12'}`} 
+            />
+            <div className="flex flex-col" style={{ fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif' }}>
               <span className={`tracking-[0.2em] font-light uppercase leading-none transition-all duration-500 text-forest ${isScrolled ? 'text-xl' : 'text-2xl'}`}>Zadokz</span>
               <span className={`tracking-[0.4em] font-bold uppercase mt-1 pl-1 transition-all duration-500 text-forest/80 ${isScrolled ? 'text-[10px]' : 'text-xs'}`}>Farms</span>
             </div>
@@ -70,7 +74,7 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-12">
             <Link href="/#stay" onClick={(e) => handleNavClick(e as any, 'stay', '/#stay')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Stay</Link>
-            <Link href="/#experiences" onClick={(e) => handleNavClick(e as any, 'experiences', '/#experiences')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Experiences</Link>
+            <Link href="/experiences" onClick={(e) => handleNavClick(e as any, 'experiences', '/experiences')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Experiences</Link>
             <Link href="/gallery" onClick={(e) => handleNavClick(e as any, 'gallery', '/gallery')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Gallery</Link>
             <Link href="/nearby" onClick={(e) => handleNavClick(e as any, 'nearby', '/nearby')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Nearby</Link>
           </div>
@@ -106,7 +110,7 @@ export default function Navbar() {
             className="fixed inset-0 z-40 bg-charcoal/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-8"
           >
             <Link href="/#stay" onClick={(e) => handleNavClick(e as any, 'stay', '/#stay')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Stay</Link>
-            <Link href="/#experiences" onClick={(e) => handleNavClick(e as any, 'experiences', '/#experiences')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Experiences</Link>
+            <Link href="/experiences" onClick={(e) => handleNavClick(e as any, 'experiences', '/experiences')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Experiences</Link>
             <Link href="/gallery" onClick={(e) => handleNavClick(e as any, 'gallery', '/gallery')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Gallery</Link>
             <Link href="/nearby" onClick={(e) => handleNavClick(e as any, 'nearby', '/nearby')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Nearby</Link>
             <button 

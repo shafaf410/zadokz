@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Fraunces, Karla, IBM_Plex_Mono } from "next/font/google";
-import { Compass, CloudSun, ThermometerSun, Leaf, ArrowUpRight, MapPin, Phone, Mail, Users, ChevronLeft, ChevronRight } from "lucide-react";
+import { BedDouble, Bath, Eye, Mountain, TreePine, ArrowUpRight, MapPin, Phone, Mail, Users } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
 // Font configurations
@@ -29,37 +29,29 @@ const plexMono = IBM_Plex_Mono({
   display: 'swap',
 });
 
-export default function PrivateGlassRoomPage() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+export default function GlassRoomPage() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  
   const { scrollYProgress } = useScroll();
   const mistOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
-  const galleryImages = [
-    { src: "/private%20glass%20room/WhatsApp%20Image%202026-07-02%20at%205.31.36%20PM.jpeg", alt: "Panoramic nature views" },
-    { src: "/private%20glass%20room/WhatsApp%20Image%202026-07-02%20at%205.30.45%20PM.jpeg", alt: "Room details" },
-    { src: "/private%20glass%20room/WhatsApp%20Image%202026-07-02%20at%205.31.16%20PM.jpeg", alt: "Immersive living" },
-    { src: "/private%20glass%20room/IMG_1123.JPEG", alt: "Exterior view" },
-  ];
-
-  const nextImage = () => setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
-  const prevImage = () => setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
-
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, [galleryImages.length]);
-
   const highlights = [
-    { icon: <Compass size={20} strokeWidth={1.5} />, title: "360° Glass Walls", desc: "Immersive panoramic views of the hills." },
-    { icon: <CloudSun size={20} strokeWidth={1.5} />, title: "Stargazing", desc: "Experience the magic of sleeping under the stars." },
-    { icon: <ThermometerSun size={20} strokeWidth={1.5} />, title: "Climate Control", desc: "Complete comfort regardless of the weather outside." },
-    { icon: <Leaf size={20} strokeWidth={1.5} />, title: "Private Garden", desc: "Lush foliage right at your doorstep." },
+    { icon: <BedDouble size={20} strokeWidth={1.5} />, title: "1 Intimate Bedroom", desc: "Designed for couples & solo travelers." },
+    { icon: <Bath size={20} strokeWidth={1.5} />, title: "Attached Bathroom", desc: "Modern amenities, hot water." },
+    { icon: <Eye size={20} strokeWidth={1.5} />, title: "360° Glass Views", desc: "Unobstructed views of the landscape." },
+    { icon: <Mountain size={20} strokeWidth={1.5} />, title: "Scenic Mountain Views", desc: "Gaze at the majestic Banasura mountains." },
+    { icon: <TreePine size={20} strokeWidth={1.5} />, title: "Peaceful Farm Surroundings", desc: "Surrounded by a lush green farm." },
   ];
 
   return (
@@ -117,8 +109,8 @@ export default function PrivateGlassRoomPage() {
       {/* 2. Hero */}
       <section className="relative w-full h-[70vh] bg-neutral-900 overflow-hidden">
         <Image 
-          src="/private%20glass%20room/cover%20photo.JPEG"
-          alt="The Private Glass Room surrounded by nature"
+          src="/GALLERY1/zadokz farmstay wayanad (23).jpg"
+          alt="The Glass Room"
           fill
           priority
           className="object-cover"
@@ -133,67 +125,62 @@ export default function PrivateGlassRoomPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 pointer-events-none" />
 
         <div className="absolute inset-0 z-20 flex flex-col justify-end base-spacing pb-12 md:pb-16 pointer-events-none">
-          <span className="font-mono text-xs md:text-xs tracking-[0.08em] uppercase text-white/80 mb-4 drop-shadow-md">Wake to Misty Mornings & Panoramic Hill Views</span>
+          <span className="font-mono text-xs md:text-xs tracking-[0.08em] uppercase text-white/80 mb-4 drop-shadow-md">Intimate luxury for couples and solo travellers</span>
           <h1 className="font-display text-5xl md:text-6xl lg:text-[5rem] text-[var(--ivory)] leading-[1.05] tracking-tight mb-6 drop-shadow-lg max-w-4xl">
-            Private Glass Room
+            The Glass Room
           </h1>
           
           <div className="flex items-center space-x-3 font-mono text-[11px] tracking-[0.08em] uppercase text-[var(--ivory)]/80">
             <Users size={14} />
-            <span>2 guests</span>
+            <span>Up to 3 guests</span>
             <span className="opacity-50">·</span>
-            <span>1 Bedroom</span>
+            <span>1 BHK</span>
           </div>
         </div>
       </section>
 
-      {/* 3. Gallery Slider */}
+      {/* 3. Gallery Grid */}
       <section className="py-16 md:py-24 base-spacing bg-[var(--ivory)]">
         <h2 className="font-display text-3xl md:text-4xl text-[var(--forest)] mb-10">Glimpses of the Room</h2>
         
-        <div className="relative w-full h-[65vh] md:h-[85vh] rounded-2xl overflow-hidden group">
-          <motion.div 
-            className="w-full h-full flex"
-            animate={{ x: `-${currentImageIndex * 100}%` }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          >
-            {galleryImages.map((img, idx) => (
-              <div key={idx} className="w-full h-full shrink-0 relative">
-                <Image 
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </motion.div>
+        {/* Mobile: Simple stack or horizontal scroll, Desktop: Airbnb style grid */}
+        <div className="flex overflow-x-auto md:grid md:grid-cols-4 md:grid-rows-2 gap-4 h-[400px] md:h-[60vh] min-h-[400px] snap-x snap-mandatory hide-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
           
-          {/* Navigation Controls */}
-          <button 
-            onClick={prevImage}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/40"
-          >
-            <ChevronLeft size={24} />
-          </button>
-          
-          <button 
-            onClick={nextImage}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/40"
-          >
-            <ChevronRight size={24} />
-          </button>
-          
-          {/* Indicators */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2">
-            {galleryImages.map((_, idx) => (
-              <button 
-                key={idx}
-                onClick={() => setCurrentImageIndex(idx)}
-                className={`w-2.5 h-2.5 rounded-full transition-colors ${currentImageIndex === idx ? "bg-white" : "bg-white/40 hover:bg-white/60"}`}
-              />
-            ))}
+          {/* Main Large Image */}
+          <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-2 md:row-span-2 relative rounded-2xl md:rounded-r-none md:rounded-l-2xl overflow-hidden group">
+            <Image 
+              src="/IMAGES/cottages/glass-room/room with view wayanad (1).jpg" 
+              alt="Glass room exterior" 
+              fill 
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
+            />
           </div>
+          
+          {/* Top Right Image */}
+          <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-2 md:row-span-1 relative rounded-2xl md:rounded-none md:rounded-tr-2xl overflow-hidden group">
+            <Image 
+              src="/IMAGES/cottages/glass-room/room with view wayanad (2).jpg" 
+              alt="Glass room interior" 
+              fill 
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
+            />
+          </div>
+          
+          {/* Bottom Right - Left Image */}
+          <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-1 md:row-span-1 relative rounded-2xl md:rounded-none overflow-hidden group">
+            <Image 
+              src="/IMAGES/cottages/glass-room/room with view wayanad (3).jpg" 
+              alt="Glass room views" 
+              fill 
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
+            />
+          </div>
+          
+          {/* Bottom Right - Right Image */}
+          <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-1 md:row-span-1 relative rounded-2xl md:rounded-none md:rounded-br-2xl overflow-hidden group bg-[var(--forest)] flex items-center justify-center">
+             <p className="font-mono text-sm tracking-widest uppercase text-[var(--ivory)] text-center p-4">Explore More</p>
+          </div>
+          
         </div>
       </section>
 
@@ -207,7 +194,7 @@ export default function PrivateGlassRoomPage() {
             <div className="w-12 h-[2px] bg-[var(--terracotta)] mb-8" />
             
             <p className="font-body text-lg md:text-xl leading-[1.7] text-[var(--forest)]/90 mb-8">
-              Experience the magic of sleeping under the stars. The Private Glass Room surrounds you with lush foliage while offering complete climate-controlled comfort and luxury. Immersive nature living with 360-degree views.
+              Refined comfort designed for couples and solo travellers seeking a private, intimate escape in a glass room with 360° views of the farm and the majestic Banasura mountains.
             </p>
             
             <ul className="flex flex-col space-y-0">
@@ -235,17 +222,17 @@ export default function PrivateGlassRoomPage() {
               
               <h3 className="font-display text-3xl md:text-4xl mb-2 mt-2">Book Your Stay</h3>
               <p className="font-body text-[var(--sage-muted)] text-base mb-10 pb-8 border-b border-[var(--ivory)]/15">
-                Contact us to check availability for the Private Glass Room.
+                Contact us to check availability for The Glass Room.
               </p>
               
               <div className="flex justify-between items-center mb-6 pb-6 border-b border-[var(--ivory)]/15">
                 <span className="font-mono text-[11px] tracking-[0.08em] uppercase text-[var(--sage-muted)]">Capacity</span>
-                <span className="font-body text-[var(--ivory)]">2 guests</span>
+                <span className="font-body text-[var(--ivory)]">Up to 3 guests</span>
               </div>
               
               <div className="flex justify-between items-center mb-10 pb-6 border-b border-[var(--ivory)]/15">
-                <span className="font-mono text-[11px] tracking-[0.08em] uppercase text-[var(--sage-muted)]">Rooms</span>
-                <span className="font-body text-[var(--ivory)]">1 Bedroom</span>
+                <span className="font-mono text-[11px] tracking-[0.08em] uppercase text-[var(--sage-muted)]">Bedrooms</span>
+                <span className="font-body text-[var(--ivory)]">1 BHK</span>
               </div>
 
               <Link 
@@ -320,13 +307,13 @@ export default function PrivateGlassRoomPage() {
             <div>
               <h4 className="font-mono text-[11px] tracking-[0.08em] uppercase text-[var(--sage-muted)] mb-6">Get in Touch</h4>
               <div className="flex flex-col space-y-4 font-body mb-8">
-                <a href="tel:+918078000000" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
+                <a href="tel:+919605575281" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
                   <Phone size={16} className="text-[var(--sage-muted)]" />
-                  <span>+91 80780 00000</span>
+                  <span>+91 96055 75281</span>
                 </a>
-                <a href="mailto:hello@zadokz.com" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
+                <a href="mailto:zadokzfarmstay@gmail.com" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
                   <Mail size={16} className="text-[var(--sage-muted)]" />
-                  <span>hello@zadokz.com</span>
+                  <span>zadokzfarmstay@gmail.com</span>
                 </a>
               </div>
               

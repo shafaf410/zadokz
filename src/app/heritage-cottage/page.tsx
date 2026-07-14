@@ -314,13 +314,13 @@ export default function HeritageCottagePage() {
             <div>
               <h4 className="font-mono text-[11px] tracking-[0.08em] uppercase text-[var(--sage-muted)] mb-6">Get in Touch</h4>
               <div className="flex flex-col space-y-4 font-body mb-8">
-                <a href="tel:+918078000000" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
+                <a href="tel:+919605575281" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
                   <Phone size={16} className="text-[var(--sage-muted)]" />
-                  <span>+91 80780 00000</span>
+                  <span>+91 96055 75281</span>
                 </a>
-                <a href="mailto:hello@zadokz.com" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
+                <a href="mailto:zadokzfarmstay@gmail.com" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
                   <Mail size={16} className="text-[var(--sage-muted)]" />
-                  <span>hello@zadokz.com</span>
+                  <span>zadokzfarmstay@gmail.com</span>
                 </a>
               </div>
               

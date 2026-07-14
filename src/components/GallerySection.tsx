@@ -6,54 +6,11 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 // The full pool of images
-const GALLERY_IMAGES = [
-  { src: "/IMAGES/pool1.jpeg", category: "Farm Pool", title: "Morning Dip" },
-  { src: "/IMAGES/pool2.jpeg", category: "Farm Pool", title: "Infinity Views" },
-  { src: "/IMAGES/pool3.jpeg", category: "Farm Pool", title: "Sunset Reflections" },
-  { src: "/IMAGES/campfire.jpeg", category: "Campfire Night", title: "Warm Gatherings" },
-  { src: "/IMAGES/campfire2.jpeg", category: "Campfire Night", title: "Stories & Stars" },
-  { src: "/IMAGES/kids play area.jpeg", category: "Kids Play Area", title: "Endless Fun" },
-  { src: "/IMAGES/kids play 2.jpeg", category: "Kids Play Area", title: "Adventure Awaits" },
-  { src: "/IMAGES/play3.jpeg", category: "Kids Play Area", title: "Joyful Moments" },
-  { src: "/IMAGES/karoke.jpeg", category: "Entertainment", title: "Musical Evenings" },
-  { src: "/IMAGES/plantation walk.jpeg", category: "Plantation Walk", title: "Misty Trails" },
-  { src: "/IMAGES/plantation2.jpeg", category: "Plantation Walk", title: "Lush Greens" },
-  { src: "/IMAGES/banasura bg.png", category: "Nearby Views", title: "Banasura Hills" },
-  { src: "/IMAGES/COTTAGE 1/COTTAGE FRONT.jpeg", category: "Cottages", title: "Heritage Villa" },
-  { src: "/IMAGES/COTTAGE 1/DINING SPACE LOOKING BANSURA.jpeg", category: "Cottages", title: "Dining with a View" },
-  { src: "/IMAGES/COTTAGE 1/ROOM4.jpeg", category: "Cottages", title: "Cozy Interiors" },
-  { src: "/IMAGES/COTTAGE 1/POOL.jpeg", category: "Cottages", title: "Private Pool View" },
-  { src: "/IMAGES/COTTAGE 1/STAIR WAY.jpeg", category: "Cottages", title: "Elegant Pathways" },
-  { src: "/IMAGES/COTTAGE 1/R.jpeg", category: "Cottages", title: "Serene Spaces" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (1).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (2).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (3).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (4).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (5).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (6).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (7).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (8).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (9).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (10).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (11).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (12).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (13).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (14).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (15).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (16).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (17).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (18).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (19).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (20).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (21).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (22).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (23).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (24).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (25).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (26).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (27).jpg", category: "Farmstay", title: "Farmstay View" },
-  { src: "/IMAGES/gallery/zadokz farmstay wayanad (28).jpg", category: "Farmstay", title: "Farmstay View" },
-];
+const GALLERY_IMAGES = Array.from({ length: 28 }).map((_, i) => ({
+  src: `/GALLERY1/zadokz farmstay wayanad (${i + 1}).jpg`,
+  category: "Zadokz Farmstay",
+  title: `Farmstay View ${i + 1}`
+}));
 
 // Helper to deterministically shuffle but we'll do it on mount to avoid hydration mismatch
 const shuffleArray = (array: any[]) => {
