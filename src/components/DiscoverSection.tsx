@@ -1,9 +1,31 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import Image from "next/image";
 
+const slideImages = [
+  "/GALLERY1/zadokz farmstay wayanad (3).jpg",
+  "/GALLERY1/zadokz farmstay wayanad (6).jpg",
+  "/GALLERY1/zadokz farmstay wayanad (8).jpg",
+  "/GALLERY1/zadokz farmstay wayanad (9).jpg",
+  "/GALLERY1/zadokz farmstay wayanad (13).jpg",
+  "/GALLERY1/zadokz farmstay wayanad (16).jpg"
+];
+
 export default function DiscoverSection() {
+  const [primaryIndex, setPrimaryIndex] = useState(0);
+  const [secondaryIndex, setSecondaryIndex] = useState(1);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPrimaryIndex((prev) => (prev + 1) % slideImages.length);
+      setSecondaryIndex((prev) => (prev + 1) % slideImages.length);
+    }, 4500); // Change image every 4.5 seconds
+    
+    return () => clearInterval(interval);
+  }, []);
+
   const textVariants: Variants = {
     hidden: { opacity: 0, y: 40 },
     visible: { 
@@ -26,15 +48,27 @@ export default function DiscoverSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              className="absolute left-0 w-[80%] h-[80%] md:h-full rounded-[32px] overflow-hidden shadow-2xl z-10"
+              className="absolute left-0 w-[80%] h-[80%] md:h-full rounded-[32px] overflow-hidden shadow-2xl z-10 bg-forest/10"
               style={{ willChange: "transform, opacity" }}
             >
-              <Image 
-                src="/IMAGES/COTTAGE 1/WhatsApp Image 2026-06-22 at 5.10.21 PM.jpeg"
-                alt="Nature surrounds Zadokz Farm Stay"
-                fill
-                className="object-cover"
-              />
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={primaryIndex}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1 }}
+                  transition={{ duration: 1.5, ease: "easeInOut" }}
+                  className="absolute inset-0 w-full h-full"
+                >
+                  <Image 
+                    src={slideImages[primaryIndex]}
+                    alt="Nature surrounds Zadokz Farm Stay"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </motion.div>
+              </AnimatePresence>
             </motion.div>
 
             {/* Secondary Floating Image */}
@@ -43,15 +77,26 @@ export default function DiscoverSection() {
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute right-0 bottom-10 w-[50%] md:w-[60%] aspect-[3/4] rounded-[24px] overflow-hidden shadow-2xl z-20 border-4 border-cream"
+              className="absolute right-0 bottom-10 w-[50%] md:w-[60%] aspect-[3/4] rounded-[24px] overflow-hidden shadow-2xl z-20 border-4 border-cream bg-forest/10"
               style={{ willChange: "transform, opacity" }}
             >
-              <Image 
-                src="/IMAGES/COTTAGE 1/STAIR WAY.jpeg"
-                alt="Architecture detail"
-                fill
-                className="object-cover"
-              />
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={secondaryIndex}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1 }}
+                  transition={{ duration: 1.5, ease: "easeInOut" }}
+                  className="absolute inset-0 w-full h-full"
+                >
+                  <Image 
+                    src={slideImages[secondaryIndex]}
+                    alt="Architecture detail"
+                    fill
+                    className="object-cover"
+                  />
+                </motion.div>
+              </AnimatePresence>
             </motion.div>
           </div>
 
