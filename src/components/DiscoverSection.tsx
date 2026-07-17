@@ -2,7 +2,6 @@
 
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
-import { RippleTransition } from "@/components/ui/ripple-transition";
 
 export default function DiscoverSection() {
   const textVariants: Variants = {
@@ -27,47 +26,31 @@ export default function DiscoverSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              className="w-full h-full rounded-[32px] overflow-hidden shadow-2xl z-10"
+              className="absolute left-0 w-[80%] h-[80%] md:h-full rounded-[32px] overflow-hidden shadow-2xl z-10"
               style={{ willChange: "transform, opacity" }}
             >
-              <RippleTransition 
-                images={[
-                  "/GALLERY1/zadokz farmstay wayanad (1).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (2).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (3).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (4).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (5).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (6).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (7).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (8).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (9).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (10).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (11).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (12).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (13).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (14).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (15).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (16).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (17).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (18).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (19).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (20).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (21).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (22).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (23).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (24).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (25).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (26).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (27).jpg",
-                  "/GALLERY1/zadokz farmstay wayanad (28).jpg"
-                ]}
-                className="h-full w-full object-cover"
-                autoPlay
-                autoPlayInterval={4000}
-                autoPlayOrigin="random"
-                duration={1.5}
-                pinch
-                borderRadius={32}
+              <Image 
+                src="/IMAGES/COTTAGE 1/WhatsApp Image 2026-06-22 at 5.10.21 PM.jpeg"
+                alt="Nature surrounds Zadokz Farm Stay"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+
+            {/* Secondary Floating Image */}
+            <motion.div 
+              initial={{ opacity: 0, x: 50, y: 50 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute right-0 bottom-10 w-[50%] md:w-[60%] aspect-[3/4] rounded-[24px] overflow-hidden shadow-2xl z-20 border-4 border-cream"
+              style={{ willChange: "transform, opacity" }}
+            >
+              <Image 
+                src="/IMAGES/COTTAGE 1/STAIR WAY.jpeg"
+                alt="Architecture detail"
+                fill
+                className="object-cover"
               />
             </motion.div>
           </div>
