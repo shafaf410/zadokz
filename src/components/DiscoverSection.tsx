@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
-import Image from "next/image";
+import MasonryGallery from "./MasonryGallery";
 
 const slideImages = [
   "/GALLERY1/zadokz farmstay wayanad (3).jpg",
@@ -14,37 +13,6 @@ const slideImages = [
 ];
 
 export default function DiscoverSection() {
-  const [primaryIndex, setPrimaryIndex] = useState(0);
-  const [secondaryIndex, setSecondaryIndex] = useState(1);
-
-  // We use refs inside the interval so it doesn't need to re-bind
-  const primaryRef = useRef(0);
-  const secondaryRef = useRef(1);
-
-  useEffect(() => {
-    let isPrimaryTurn = true;
-    const interval = setInterval(() => {
-      if (isPrimaryTurn) {
-        let next = (primaryRef.current + 1) % slideImages.length;
-        if (next === secondaryRef.current) {
-          next = (next + 1) % slideImages.length;
-        }
-        primaryRef.current = next;
-        setPrimaryIndex(next);
-      } else {
-        let next = (secondaryRef.current + 1) % slideImages.length;
-        if (next === primaryRef.current) {
-          next = (next + 1) % slideImages.length;
-        }
-        secondaryRef.current = next;
-        setSecondaryIndex(next);
-      }
-      isPrimaryTurn = !isPrimaryTurn;
-    }, 3000); // One image switches every 3 seconds (each box switches every 6s)
-    
-    return () => clearInterval(interval);
-  }, []);
-
   const textVariants: Variants = {
     hidden: { opacity: 0, y: 40 },
     visible: { 
@@ -59,68 +27,13 @@ export default function DiscoverSection() {
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-16 items-start relative pt-4">
           
-          {/* Left Side: Images */}
-          <div className="md:col-span-5 relative h-[50vh] md:h-[65vh] w-full mb-6 md:mb-0">
-            {/* Primary Large Image */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              className="absolute left-0 w-[80%] h-[80%] md:h-full rounded-[32px] overflow-hidden shadow-2xl z-10 bg-forest/10"
-              style={{ willChange: "transform, opacity" }}
-            >
-              <AnimatePresence>
-                <motion.div
-                  key={primaryIndex}
-                  initial={{ opacity: 0, zIndex: 10 }}
-                  animate={{ opacity: 1, zIndex: 10 }}
-                  exit={{ opacity: 1, zIndex: 0 }}
-                  transition={{ duration: 1.2, ease: "easeInOut" }}
-                  className="absolute inset-0 w-full h-full"
-                >
-                  <Image 
-                    src={slideImages[primaryIndex]}
-                    alt="Nature surrounds Zadokz Farm Stay"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                </motion.div>
-              </AnimatePresence>
-            </motion.div>
-
-            {/* Secondary Floating Image */}
-            <motion.div 
-              initial={{ opacity: 0, x: 50, y: 50 }}
-              whileInView={{ opacity: 1, x: 0, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute right-0 bottom-10 w-[50%] md:w-[60%] aspect-[3/4] rounded-[24px] overflow-hidden shadow-2xl z-20 border-4 border-cream bg-forest/10"
-              style={{ willChange: "transform, opacity" }}
-            >
-              <AnimatePresence>
-                <motion.div
-                  key={secondaryIndex}
-                  initial={{ opacity: 0, zIndex: 10 }}
-                  animate={{ opacity: 1, zIndex: 10 }}
-                  exit={{ opacity: 1, zIndex: 0 }}
-                  transition={{ duration: 1.2, ease: "easeInOut" }}
-                  className="absolute inset-0 w-full h-full"
-                >
-                  <Image 
-                    src={slideImages[secondaryIndex]}
-                    alt="Architecture detail"
-                    fill
-                    className="object-cover"
-                  />
-                </motion.div>
-              </AnimatePresence>
-            </motion.div>
+          {/* Left Side: Images Gallery */}
+          <div className="md:col-span-7 relative w-full mb-8 md:mb-0">
+            <MasonryGallery images={slideImages} />
           </div>
 
           {/* Right Side: Content */}
-          <div className="md:col-span-6 md:col-start-7 flex flex-col justify-start">
+          <div className="md:col-span-5 flex flex-col justify-center md:pl-8 lg:pl-12">
             <motion.div 
               initial="hidden"
               whileInView="visible"
