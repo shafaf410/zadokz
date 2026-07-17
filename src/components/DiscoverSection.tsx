@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Image from "next/image";
 
@@ -17,11 +17,30 @@ export default function DiscoverSection() {
   const [primaryIndex, setPrimaryIndex] = useState(0);
   const [secondaryIndex, setSecondaryIndex] = useState(1);
 
+  // We use refs inside the interval so it doesn't need to re-bind
+  const primaryRef = useRef(0);
+  const secondaryRef = useRef(1);
+
   useEffect(() => {
+    let isPrimaryTurn = true;
     const interval = setInterval(() => {
-      setPrimaryIndex((prev) => (prev + 1) % slideImages.length);
-      setSecondaryIndex((prev) => (prev + 1) % slideImages.length);
-    }, 4500); // Change image every 4.5 seconds
+      if (isPrimaryTurn) {
+        let next = (primaryRef.current + 1) % slideImages.length;
+        if (next === secondaryRef.current) {
+          next = (next + 1) % slideImages.length;
+        }
+        primaryRef.current = next;
+        setPrimaryIndex(next);
+      } else {
+        let next = (secondaryRef.current + 1) % slideImages.length;
+        if (next === primaryRef.current) {
+          next = (next + 1) % slideImages.length;
+        }
+        secondaryRef.current = next;
+        setSecondaryIndex(next);
+      }
+      isPrimaryTurn = !isPrimaryTurn;
+    }, 3000); // One image switches every 3 seconds (each box switches every 6s)
     
     return () => clearInterval(interval);
   }, []);
@@ -51,13 +70,13 @@ export default function DiscoverSection() {
               className="absolute left-0 w-[80%] h-[80%] md:h-full rounded-[32px] overflow-hidden shadow-2xl z-10 bg-forest/10"
               style={{ willChange: "transform, opacity" }}
             >
-              <AnimatePresence mode="wait">
+              <AnimatePresence>
                 <motion.div
                   key={primaryIndex}
-                  initial={{ opacity: 0, scale: 1.05 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1 }}
-                  transition={{ duration: 1.5, ease: "easeInOut" }}
+                  initial={{ opacity: 0, zIndex: 10 }}
+                  animate={{ opacity: 1, zIndex: 10 }}
+                  exit={{ opacity: 1, zIndex: 0 }}
+                  transition={{ duration: 1.2, ease: "easeInOut" }}
                   className="absolute inset-0 w-full h-full"
                 >
                   <Image 
@@ -80,13 +99,13 @@ export default function DiscoverSection() {
               className="absolute right-0 bottom-10 w-[50%] md:w-[60%] aspect-[3/4] rounded-[24px] overflow-hidden shadow-2xl z-20 border-4 border-cream bg-forest/10"
               style={{ willChange: "transform, opacity" }}
             >
-              <AnimatePresence mode="wait">
+              <AnimatePresence>
                 <motion.div
                   key={secondaryIndex}
-                  initial={{ opacity: 0, scale: 1.05 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1 }}
-                  transition={{ duration: 1.5, ease: "easeInOut" }}
+                  initial={{ opacity: 0, zIndex: 10 }}
+                  animate={{ opacity: 1, zIndex: 10 }}
+                  exit={{ opacity: 1, zIndex: 0 }}
+                  transition={{ duration: 1.2, ease: "easeInOut" }}
                   className="absolute inset-0 w-full h-full"
                 >
                   <Image 
