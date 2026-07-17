@@ -17,6 +17,9 @@ export default function VideoIntroSequence({ onComplete }: VideoIntroSequencePro
   const handleVideoEnd = () => {
     if (isVideoFinished) return;
     setIsVideoFinished(true);
+    
+    // Notify AudioPlayer to show the toggle
+    window.dispatchEvent(new Event("enterSite"));
 
     // Fade to black and then disappear
     const tl = gsap.timeline({
