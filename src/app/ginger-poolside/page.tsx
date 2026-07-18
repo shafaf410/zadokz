@@ -134,7 +134,7 @@ export default function GingerPoolsidePage() {
             <Users size={14} />
             <span>Up to 3 guests</span>
             <span className="opacity-50">·</span>
-            <span>1 BHK</span>
+            <span>1 Private Room</span>
           </div>
         </div>
       </section>
@@ -232,7 +232,7 @@ export default function GingerPoolsidePage() {
               
               <div className="flex justify-between items-center mb-10 pb-6 border-b border-[var(--ivory)]/15">
                 <span className="font-mono text-[11px] tracking-[0.08em] uppercase text-[var(--sage-muted)]">Bedrooms</span>
-                <span className="font-body text-[var(--ivory)]">1 BHK</span>
+                <span className="font-body text-[var(--ivory)]">1 Private Room</span>
               </div>
 
               <Link 
