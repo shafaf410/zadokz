@@ -86,7 +86,12 @@ export default function AudioPlayer() {
     };
   }, []);
 
-  const toggleAudio = () => {
+  const toggleAudio = (e?: any) => {
+    if (e) {
+      e.stopPropagation();
+      // e.preventDefault(); // Don't prevent default as it might block hover/tap states
+    }
+    
     if (!soundRef.current) return;
     
     if (isPlaying) {
@@ -108,13 +113,20 @@ export default function AudioPlayer() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="fixed bottom-24 right-6 z-[100] flex items-center space-x-3"
+          className="fixed bottom-24 right-6 z-[100] flex items-center space-x-3 pointer-events-auto"
         >
           <motion.button
             onClick={toggleAudio}
+            onPointerDown={(e) => {
+              // On mobile, pointerdown is more responsive
+              // We don't want both pointerdown and click to trigger
+              // so we can rely on onClick, or if we use pointerdown we must prevent click.
+              // Framer Motion provides `onTap` which normalizes this perfectly across devices!
+            }}
+            onTap={(e) => toggleAudio(e)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-12 h-12 rounded-full bg-cream/90 backdrop-blur-md flex items-center justify-center text-charcoal shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:bg-[var(--forest)] hover:text-cream transition-colors focus:outline-none border border-charcoal/10 group"
+            className="w-12 h-12 rounded-full bg-cream/90 backdrop-blur-md flex items-center justify-center text-charcoal shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:bg-[var(--forest)] hover:text-cream transition-colors focus:outline-none border border-charcoal/10 group cursor-pointer touch-manipulation"
             aria-label={isPlaying ? "Mute background music" : "Play background music"}
           >
             {isPlaying ? (
