@@ -55,7 +55,8 @@ export default function VideoIntroSequence({ onComplete }: VideoIntroSequencePro
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 z-[9999] pointer-events-auto flex items-center justify-center overflow-hidden bg-black"
+      onClick={handleVideoEnd}
+      className="fixed inset-0 z-[9999] pointer-events-auto flex items-center justify-center overflow-hidden bg-black cursor-pointer"
     >
       <video 
         ref={desktopVideoRef}
@@ -81,14 +82,6 @@ export default function VideoIntroSequence({ onComplete }: VideoIntroSequencePro
         ref={overlayRef} 
         className="absolute inset-0 bg-black opacity-0 pointer-events-none"
       />
-
-      {/* Skip button for convenience in case video fails to autoplay or user wants to skip */}
-      <button 
-        onClick={handleVideoEnd}
-        className="absolute bottom-8 right-8 text-cream/50 hover:text-cream text-sm tracking-widest uppercase transition-colors z-50"
-      >
-        Skip Intro
-      </button>
     </div>
   );
 }
