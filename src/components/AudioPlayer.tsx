@@ -62,26 +62,41 @@ export default function AudioPlayer() {
     document.addEventListener('touchstart', unlockHowler, { passive: true });
     document.addEventListener('click', unlockHowler, { passive: true });
 
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        if (sound.playing()) {
-          sound.pause();
-          (sound as any)._wasPlaying = true;
-        }
-      } else {
-        if ((sound as any)._wasPlaying) {
-          sound.play();
-          (sound as any)._wasPlaying = false;
-        }
+    const handleBackground = () => {
+      if (sound.playing()) {
+        sound.pause();
+        (sound as any)._wasPlaying = true;
       }
     };
+
+    const handleForeground = () => {
+      if ((sound as any)._wasPlaying && sessionStorage.getItem("audioMuted") !== "true") {
+        sound.play();
+        (sound as any)._wasPlaying = false;
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        handleBackground();
+      } else {
+        handleForeground();
+      }
+    };
+
     document.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener("pagehide", handleBackground);
+    window.addEventListener("blur", handleBackground);
+    window.addEventListener("focus", handleForeground);
 
     return () => {
       window.removeEventListener("enterSite", handleEnterSite);
       document.removeEventListener('touchstart', unlockHowler);
       document.removeEventListener('click', unlockHowler);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("pagehide", handleBackground);
+      window.removeEventListener("blur", handleBackground);
+      window.removeEventListener("focus", handleForeground);
       sound.unload();
     };
   }, []);
