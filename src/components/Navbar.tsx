@@ -59,16 +59,17 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
+          <Link href="/" className="flex items-center space-x-2 group">
             <img 
-              src="/icon%20of%20logo.jpeg" 
+              src="/logo-icon.png" 
               alt="Zadokz Logo Icon" 
-              className={`w-auto object-contain rounded-full transition-all duration-500 mix-blend-multiply ${isScrolled ? 'h-8' : 'h-12'}`} 
+              className={`w-auto object-contain transition-all duration-500 ${isScrolled ? 'h-8 md:h-10' : 'h-12 md:h-16'}`} 
             />
-            <div className="flex flex-col" style={{ fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif' }}>
-              <span className={`tracking-[0.2em] font-light uppercase leading-none transition-all duration-500 text-forest ${isScrolled ? 'text-xl' : 'text-2xl'}`}>Zadokz</span>
-              <span className={`tracking-[0.4em] font-bold uppercase mt-1 pl-1 transition-all duration-500 text-forest/80 ${isScrolled ? 'text-[10px]' : 'text-xs'}`}>Farms</span>
-            </div>
+            <img 
+              src="/logo-writing.png" 
+              alt="Zadokz Logo Text" 
+              className={`w-auto object-contain transition-all duration-500 ${isScrolled ? 'h-6 md:h-8' : 'h-8 md:h-12'}`} 
+            />
           </Link>
 
           {/* Desktop Nav */}
