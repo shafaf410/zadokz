@@ -67,7 +67,7 @@ export default function HeroSection() {
       </div>
 
       {/* Main Content Area */}
-      <div className="container relative z-20 mx-auto px-6 md:px-12 h-full flex flex-col md:flex-row items-start md:items-center md:justify-end pt-24 md:pt-32 pb-32 md:pb-0 flex-1">
+      <div className="container relative z-20 mx-auto px-6 md:px-12 h-full flex flex-col md:flex-row items-start md:items-center md:justify-end pt-24 md:pt-32 pb-16 md:pb-0 flex-1">
         
         {/* RIGHT COLUMN (55%) */}
         <motion.div 
