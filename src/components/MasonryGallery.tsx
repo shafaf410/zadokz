@@ -39,7 +39,7 @@ function SlideshowBox({ images, delay = 0 }: SlideshowBoxProps) {
           key={currentIndex}
           initial={{ opacity: 0, scale: 1.05, zIndex: 10 }}
           animate={{ opacity: 1, scale: isHovered ? 1.03 : 1, zIndex: 10 }}
-          exit={{ opacity: 1, zIndex: 0 }}
+          exit={{ opacity: 0.99, zIndex: 0 }}
           transition={{
             opacity: { duration: 1.2, ease: "easeInOut" },
             scale: { duration: 1.5, ease: "easeOut" }
