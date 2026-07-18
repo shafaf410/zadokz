@@ -28,7 +28,7 @@ const ACCOMMODATIONS = [
     features: ["4 Spacious Bedrooms with Attached Bathrooms", "Open Dining space with panoramic view", "Spacious Private balconies", "Misty Morning Views", "Peaceful Farm Surroundings"],
     capacity: "Upto 6 guest",
     size: "1500 sq ft",
-    image: "/IMAGES/cottages/the-block/famstay in wayanad (1).jpg",
+    image: "/IMAGES/cover/the-block-cover-new.jpg",
     link: "/the-block"
   },
   {
