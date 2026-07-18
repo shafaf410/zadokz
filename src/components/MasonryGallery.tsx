@@ -72,14 +72,14 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
   const bottomRightImages = images.filter((_, i) => i % 3 === 2); // 2, 5
 
   return (
-    <div className="w-full flex flex-col md:flex-row gap-4 md:gap-[16px] lg:gap-[20px] h-[70vh] md:h-[600px] lg:h-[700px]">
+    <div className="w-full flex flex-col md:flex-row gap-4 md:gap-[16px] lg:gap-[20px] md:h-[600px] lg:h-[700px]">
       {/* Left Column (approx 65%) */}
-      <div className="w-full md:w-[65%] h-1/2 md:h-full relative">
+      <div className="w-full md:w-[65%] h-[50vh] md:h-full relative">
         <SlideshowBox images={leftImages} delay={0} />
       </div>
 
       {/* Right Column (approx 35%) */}
-      <div className="w-full md:w-[35%] h-1/2 md:h-full flex flex-col gap-4 md:gap-[16px] lg:gap-[20px]">
+      <div className="w-full md:w-[35%] flex flex-col gap-4 md:gap-[16px] lg:gap-[20px] h-[60vh] md:h-full">
         <div className="w-full h-1/2 relative">
           <SlideshowBox images={topRightImages} delay={0.15} />
         </div>

@@ -39,7 +39,7 @@ const ACCOMMODATIONS = [
     features: ["King size bed with Attached Bathroom", "Private balcony", "360 degree view", "Misty Morning Views", "Peaceful Farm Surroundings"],
     capacity: "Upto 3 guests",
     size: "450 sq ft",
-    image: "/IMAGES/cottages/glass-room/room with view wayanad (1).jpg",
+    image: "/IMAGES/cover/glass room cover new.jpg",
     link: "/private-glass-room"
   },
   {
