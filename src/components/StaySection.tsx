@@ -59,7 +59,7 @@ const ACCOMMODATIONS = [
     tagline: "Comfortable resting spaces for your travel companions.",
     description: "We ensure everyone travels comfortably. Our dedicated driver accommodations provide clean, comfortable resting spaces with essential amenities.",
     features: ["Essential Amenities", "Comfortable Bedding", "Attached Bath", "Dining Access"],
-    capacity: "1 Guest",
+    capacity: "2 Guests",
     size: "150 sq ft",
     image: "/IMAGES/COTTAGE 1/STAIR WAY.jpeg"
   }

@@ -235,13 +235,15 @@ export default function GlassRoomPage() {
                 <span className="font-body text-[var(--ivory)]">1 Private Room</span>
               </div>
 
-              <Link 
-                href="/#contact"
+              <a 
+                href="https://wa.me/919605575281?text=Hello,%20I'd%20like%20to%20book%20a%20stay%20at%20Zadokz%20Farm%20Stay!"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full py-4 bg-[var(--terracotta)] text-[var(--ivory)] rounded-[6px] font-body font-medium text-lg flex items-center justify-center space-x-2 group hover:bg-[#A34322] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--forest)]"
               >
                 <span>Contact to Book</span>
                 <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </Link>
+              </a>
             </div>
           </div>
           
