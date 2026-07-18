@@ -15,10 +15,10 @@ const ATTRACTIONS = [
   },
   {
     id: "02",
-    title: "Zip Line Adventure",
-    distance: "Nearby",
-    description: "Experience the thrill of soaring above scenic landscapes and lush greenery. Perfect for adventure seekers looking to create unforgettable memories with family and friends.",
-    image: "/zipla.jpg",
+    title: "Banasura Sagar Dam",
+    distance: "2 KM",
+    description: "Visit Asia's second-largest earth dam and admire spectacular views of the surrounding hills and reservoir. Enjoy boating, scenic viewpoints, and unforgettable sunsets just minutes from Zadokz Farm Stay.",
+    image: "/IMAGES/dam.jpg",
     cta: "Explore Attraction"
   },
   {
@@ -31,10 +31,10 @@ const ATTRACTIONS = [
   },
   {
     id: "04",
-    title: "Banasura Sagar Dam",
-    distance: "2 KM",
-    description: "Visit Asia's second-largest earth dam and admire spectacular views of the surrounding hills and reservoir. Enjoy boating, scenic viewpoints, and unforgettable sunsets just minutes from Zadokz Farm Stay.",
-    image: "/IMAGES/dam.jpg",
+    title: "Zip Line Adventure",
+    distance: "Nearby",
+    description: "Experience the thrill of soaring above scenic landscapes and lush greenery. Perfect for adventure seekers looking to create unforgettable memories with family and friends.",
+    image: "/zipla.jpg",
     cta: "Explore Attraction"
   },
   {
