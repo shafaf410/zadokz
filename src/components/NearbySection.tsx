@@ -15,10 +15,10 @@ const ATTRACTIONS = [
   },
   {
     id: "02",
-    title: "Banasura Sagar Dam",
-    distance: "2 KM",
-    description: "Visit Asia's second-largest earth dam and admire spectacular views of the surrounding hills and reservoir. Enjoy boating, scenic viewpoints, and unforgettable sunsets just minutes from Zadokz Farm Stay.",
-    image: "/boating.jpg",
+    title: "Zip Line Adventure",
+    distance: "Nearby",
+    description: "Experience the thrill of soaring above scenic landscapes and lush greenery. Perfect for adventure seekers looking to create unforgettable memories with family and friends.",
+    image: "/zipla.jpg",
     cta: "Explore Attraction"
   },
   {
@@ -31,10 +31,10 @@ const ATTRACTIONS = [
   },
   {
     id: "04",
-    title: "Zip Line Adventure",
-    distance: "Nearby",
-    description: "Experience the thrill of soaring above scenic landscapes and lush greenery. Perfect for adventure seekers looking to create unforgettable memories with family and friends.",
-    image: "/zipla.jpg",
+    title: "Banasura Sagar Dam",
+    distance: "2 KM",
+    description: "Visit Asia's second-largest earth dam and admire spectacular views of the surrounding hills and reservoir. Enjoy boating, scenic viewpoints, and unforgettable sunsets just minutes from Zadokz Farm Stay.",
+    image: "/IMAGES/dam.jpg",
     cta: "Explore Attraction"
   },
   {
@@ -52,6 +52,14 @@ const ATTRACTIONS = [
     description: "Hold on tight for a thrilling 4x4 offroad jeep ride through the muddy, rugged trails of the dense Wayanad forests. An adrenaline-pumping experience you won't easily forget.",
     image: "/offroad.jpg",
     cta: "Book Adventure"
+  },
+  {
+    id: "07",
+    title: "Banasura Dam Boat Ride",
+    distance: "2 KM",
+    description: "Drift peacefully along the vast, serene waters of the Banasura Sagar Dam. Surrounded by majestic green hills, this scenic boat ride is the perfect way to relax and soak in nature's beauty.",
+    image: "/boating.jpg",
+    cta: "Explore Attraction"
   }
 ];
 
