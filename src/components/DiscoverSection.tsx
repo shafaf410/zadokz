@@ -47,11 +47,11 @@ export default function DiscoverSection() {
               </motion.h2>
 
               <motion.p variants={textVariants} className="text-charcoal/70 text-base md:text-lg leading-relaxed mb-4 font-light max-w-3xl">
-                Zadokz began as our family's weekend home &mdash; a quiet escape to slow down, gather, and enjoy nature away from city life. Over time, friends and family who visited felt the same calm, and we began welcoming guests seeking that experience too. Today, Zadokz Farmstay is a warm countryside retreat for families, couples, and weekend travellers.
+                Zadokz began as our family's weekend home, a quiet escape to slow down, gather, and enjoy nature away from city life. Over time, friends and family who visited felt the same calm, and we began welcoming guests seeking that experience too. Today, Zadokz Farmstay is a warm countryside retreat for families, couples, and weekend travellers.
               </motion.p>
 
               <motion.p variants={textVariants} className="text-charcoal/70 text-base md:text-lg leading-relaxed mb-8 font-light max-w-3xl">
-                The setting has grown, but the essence hasn't &mdash; comfort, nature, and a homely feel. We believe in simple living, genuine hospitality, and giving guests space to reconnect and make memories.
+                The setting has grown, but the essence hasn't, comfort, nature, and a homely feel. We believe in simple living, genuine hospitality, and giving guests space to reconnect and make memories.
               </motion.p>
 
               <motion.div variants={textVariants}>
