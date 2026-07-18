@@ -50,7 +50,7 @@ const ACCOMMODATIONS = [
     features: ["King size bed Bedrooms with Attached Bathroom", "Private porch", "Misty Morning Views", "Peaceful Farm Surroundings"],
     capacity: "Upto 3 guests",
     size: "350 sq ft",
-    image: "/IMAGES/cottages/ginger/pool side room (1).jpg",
+    image: "/IMAGES/cover/ginger cover.jpg",
     link: "/ginger-poolside"
   },
   {
