@@ -60,7 +60,6 @@ const ACCOMMODATIONS = [
     description: "We ensure everyone travels comfortably. Our dedicated driver accommodations provide clean, comfortable resting spaces with essential amenities.",
     features: ["Essential Amenities", "Comfortable Bedding", "Attached Bath", "Dining Access"],
     capacity: "2 Guests",
-    size: "150 sq ft",
     image: "/IMAGES/COTTAGE 1/STAIR WAY.jpeg"
   }
 ];
@@ -271,15 +270,19 @@ export default function StaySection() {
                   <p className="text-charcoal/70 text-lg font-light leading-relaxed">{selectedStay.description}</p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-6 mb-12">
-                  <div className="flex items-center space-x-3 text-charcoal/80">
-                    <Users size={20} strokeWidth={1.5} />
-                    <span className="text-sm tracking-wide">{selectedStay.capacity}</span>
-                  </div>
-                  <div className="flex items-center space-x-3 text-charcoal/80">
-                    <Scaling size={20} strokeWidth={1.5} />
-                    <span className="text-sm tracking-wide">{selectedStay.size}</span>
-                  </div>
+                <div className="flex flex-wrap gap-6 mb-12">
+                  {selectedStay.capacity && (
+                    <div className="flex items-center space-x-3 text-charcoal/80">
+                      <Users size={20} strokeWidth={1.5} />
+                      <span className="text-sm tracking-wide">{selectedStay.capacity}</span>
+                    </div>
+                  )}
+                  {selectedStay.size && (
+                    <div className="flex items-center space-x-3 text-charcoal/80">
+                      <Scaling size={20} strokeWidth={1.5} />
+                      <span className="text-sm tracking-wide">{selectedStay.size}</span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="mb-12">
