@@ -67,3 +67,12 @@ body {
 .animate-shimmer {
   animation: shimmer 1.5s infinite;
 }
+
+/* Hide native iOS play button overlay */
+video::-webkit-media-controls {
+  display: none !important;
+}
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}

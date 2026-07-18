@@ -45,10 +45,16 @@ export default function VideoIntroSequence({ onComplete }: VideoIntroSequencePro
   useEffect(() => {
     // Attempt to autoplay videos
     if (desktopVideoRef.current) {
-      desktopVideoRef.current.play().catch(e => console.error("Desktop intro video autoplay failed", e));
+      desktopVideoRef.current.play().catch(e => {
+        console.error("Desktop intro video autoplay failed", e);
+        handleVideoEnd();
+      });
     }
     if (mobileVideoRef.current) {
-      mobileVideoRef.current.play().catch(e => console.error("Mobile intro video autoplay failed", e));
+      mobileVideoRef.current.play().catch(e => {
+        console.error("Mobile intro video autoplay failed", e);
+        handleVideoEnd();
+      });
     }
   }, []);
 
