@@ -67,14 +67,14 @@ export default function HeroSection() {
       </div>
 
       {/* Main Content Area */}
-      <div className="container relative z-20 mx-auto px-6 md:px-12 h-full flex flex-col md:flex-row items-start md:items-center md:justify-end pt-24 md:pt-32 pb-6 md:pb-0 flex-1">
+      <div className="container relative z-20 mx-auto px-6 md:px-12 h-full flex flex-col md:flex-row items-start md:items-center md:justify-end pt-24 md:pt-32 pb-32 md:pb-0 flex-1">
         
         {/* RIGHT COLUMN (55%) */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="w-full md:w-[60%] lg:w-[55%] flex flex-col justify-end md:justify-center h-full max-w-[800px] md:pl-8 lg:pl-16 xl:pl-24"
+          className="w-full md:w-[60%] lg:w-[55%] flex flex-col justify-start md:justify-center h-full flex-1 max-w-[800px] md:pl-8 lg:pl-16 xl:pl-24"
         >
           <motion.div variants={itemVariants} className="mb-4 md:mb-6 xl:mb-8 inline-flex items-center space-x-3 xl:space-x-4 mt-4 md:mt-0 drop-shadow-md">
             <div className="w-8 xl:w-12 h-[2px] bg-cream"></div>
@@ -92,7 +92,7 @@ export default function HeroSection() {
             </h1>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-6 xl:space-x-8 mt-auto md:mt-8 xl:mt-12 pb-4 md:pb-0 w-full relative z-30">
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-6 xl:space-x-8 mt-auto md:mt-8 xl:mt-12 w-full relative z-30">
             <button 
               onClick={() => document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' }) || window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
               className="px-6 py-3 md:px-8 md:py-4 xl:px-10 xl:py-5 bg-forest text-cream rounded-full text-xs md:text-sm xl:text-base tracking-widest uppercase hover:bg-moss transition-all duration-300 w-full sm:w-auto text-center font-semibold"
