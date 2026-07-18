@@ -39,6 +39,18 @@ export default function Navbar() {
     });
   };
 
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (window.location.pathname === '/') {
+      e.preventDefault();
+      setIsMobileMenuOpen(false);
+      if (lenis) {
+        lenis.scrollTo(0, { offset: 0 });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -59,7 +71,7 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
+          <Link href="/" onClick={handleHomeClick} className="flex items-center space-x-2 group">
             <img 
               src="/logo-icon.png" 
               alt="Zadokz Logo Icon" 
@@ -74,7 +86,7 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-12">
-            <Link href="/" className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Home</Link>
+            <Link href="/" onClick={handleHomeClick} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Home</Link>
             <Link href="/#stay" onClick={(e) => handleNavClick(e as any, 'stay', '/#stay')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Stay</Link>
             <Link href="/experiences" onClick={(e) => handleNavClick(e as any, 'experiences', '/experiences')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Experiences</Link>
             <Link href="/gallery" onClick={(e) => handleNavClick(e as any, 'gallery', '/gallery')} className="text-sm tracking-widest uppercase transition-colors duration-500 text-forest hover:text-forest/70 font-bold cursor-pointer">Gallery</Link>
@@ -111,7 +123,7 @@ export default function Navbar() {
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 z-40 bg-charcoal/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-8"
           >
-            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Home</Link>
+            <Link href="/" onClick={handleHomeClick} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Home</Link>
             <Link href="/#stay" onClick={(e) => handleNavClick(e as any, 'stay', '/#stay')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Stay</Link>
             <Link href="/experiences" onClick={(e) => handleNavClick(e as any, 'experiences', '/experiences')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Experiences</Link>
             <Link href="/gallery" onClick={(e) => handleNavClick(e as any, 'gallery', '/gallery')} className="text-2xl tracking-widest uppercase text-cream cursor-pointer">Gallery</Link>
