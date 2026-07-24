@@ -47,7 +47,7 @@ export default function FeedbackSection() {
         className="flex flex-col sm:flex-row gap-4 items-center justify-center"
       >
         <a 
-          href="mailto:zadokzfarmstay@gmail.com?subject=Feedback" 
+          href="mailto:hello@zadokzfarmstay.com?subject=Feedback" 
           className="group flex items-center justify-center gap-3 px-8 py-3.5 rounded-full bg-forest text-cream hover:bg-opacity-90 transition-all duration-300 hover:-translate-y-1"
         >
           <span className="font-medium text-sm tracking-wide uppercase">Send Feedback</span>

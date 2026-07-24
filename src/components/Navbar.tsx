@@ -71,17 +71,9 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" onClick={handleHomeClick} className="flex items-center space-x-2 group">
-            <img 
-              src="/logo-icon.png" 
-              alt="Zadokz Logo Icon" 
-              className={`w-auto object-contain transition-all duration-500 ${isScrolled ? 'h-8 md:h-10' : 'h-12 md:h-16'}`} 
-            />
-            <img 
-              src="/logo-writing.png" 
-              alt="Zadokz Logo Text" 
-              className={`w-auto object-contain transition-all duration-500 ${isScrolled ? 'h-6 md:h-8' : 'h-8 md:h-12'}`} 
-            />
+          <Link href="/" onClick={handleHomeClick} className="flex items-center space-x-3 group">
+            <img src="/logo.png" alt="Zadokz Icon" className={`w-auto object-contain transition-all duration-500 ${isScrolled ? 'h-8' : 'h-12'}`} />
+            <img src="/logo-writing.png" alt="Zadokz Text" className={`w-auto object-contain transition-all duration-500 ${isScrolled ? 'h-8' : 'h-12'}`} />
           </Link>
 
           {/* Desktop Nav */}

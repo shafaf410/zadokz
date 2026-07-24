@@ -83,7 +83,7 @@ export default function HeroSection() {
           
           <motion.div variants={itemVariants}>
             <h1 
-              className="text-4xl sm:text-5xl md:text-5xl lg:text-[3.75rem] xl:text-[4.5rem] 2xl:text-[5.5rem] text-cream leading-[1.1] mb-6 xl:mb-10 max-w-[850px] font-[var(--font-boska)] drop-shadow-2xl"
+              className="text-5xl md:text-6xl lg:text-[4.5rem] text-cream leading-[1.1] mb-6 max-w-[700px] font-[var(--font-boska)] drop-shadow-2xl"
               style={{ textShadow: "0 4px 30px rgba(0,0,0,0.7), 0 2px 10px rgba(0,0,0,0.5)" }}
             >
               Where Farm Life <br />

@@ -54,7 +54,7 @@ export default function Footer() {
                 </li>
                 <li className="flex items-center space-x-3 text-cream/70">
                   <Mail size={20} />
-                  <span>zadokzfarmstay@gmail.com</span>
+                  <span>hello@zadokzfarmstay.com</span>
                 </li>
               </ul>
               

@@ -319,9 +319,9 @@ export default function TheBlockPage() {
                   <Phone size={16} className="text-[var(--sage-muted)]" />
                   <span>+91 96055 75281</span>
                 </a>
-                <a href="mailto:zadokzfarmstay@gmail.com" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
+                <a href="mailto:hello@zadokzfarmstay.com" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
                   <Mail size={16} className="text-[var(--sage-muted)]" />
-                  <span>zadokzfarmstay@gmail.com</span>
+                  <span>hello@zadokzfarmstay.com</span>
                 </a>
               </div>
               

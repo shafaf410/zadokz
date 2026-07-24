@@ -6,7 +6,7 @@ import AppWrapper from "@/components/AppWrapper";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "Zadokz Farm Stay | Luxury Forest Retreat",
+  title: "Zadokz Farm Stay | A Boutique Farm Retreat",
   description: "Escape to nature. Wake up to misty mornings and discover unforgettable moments at Zadokz Farm Stay.",
 };
 

@@ -166,19 +166,14 @@ export default function GlassRoomPage() {
             />
           </div>
           
-          {/* Bottom Right - Left Image */}
-          <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-1 md:row-span-1 relative rounded-2xl md:rounded-none overflow-hidden group">
+          {/* Bottom Right Image */}
+          <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-2 md:row-span-1 relative rounded-2xl md:rounded-none md:rounded-br-2xl overflow-hidden group">
             <Image 
               src="/IMAGES/cottages/glass-room/room with view wayanad (3).jpg" 
               alt="Glass room views" 
               fill 
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
             />
-          </div>
-          
-          {/* Bottom Right - Right Image */}
-          <div className="snap-center shrink-0 w-[85vw] md:w-auto h-full md:col-span-1 md:row-span-1 relative rounded-2xl md:rounded-none md:rounded-br-2xl overflow-hidden group bg-[var(--forest)] flex items-center justify-center">
-             <p className="font-mono text-sm tracking-widest uppercase text-[var(--ivory)] text-center p-4">Explore More</p>
           </div>
           
         </div>
@@ -313,9 +308,9 @@ export default function GlassRoomPage() {
                   <Phone size={16} className="text-[var(--sage-muted)]" />
                   <span>+91 96055 75281</span>
                 </a>
-                <a href="mailto:zadokzfarmstay@gmail.com" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
+                <a href="mailto:hello@zadokzfarmstay.com" className="flex items-center space-x-3 hover:text-[var(--terracotta)] transition-colors w-fit focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--terracotta)]">
                   <Mail size={16} className="text-[var(--sage-muted)]" />
-                  <span>zadokzfarmstay@gmail.com</span>
+                  <span>hello@zadokzfarmstay.com</span>
                 </a>
               </div>
               
